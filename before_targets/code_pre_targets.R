@@ -81,7 +81,7 @@ data_nomiss <- data_formatted %>%
   
 data_nomiss
 
-# 4. Visualize data
+# 4. Visualize data 
 Line_chart <-   data_nomiss %>% 
   select(Date,Att_TypeI) %>% 
   ggplot(aes(x = Date, y = Att_TypeI, colour = "darkorange1")) +

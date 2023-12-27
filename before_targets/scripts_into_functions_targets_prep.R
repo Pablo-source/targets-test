@@ -70,7 +70,7 @@ Line_chart
 ggsave("plots/01 Monthly A&E Type I Attendances 2011-2013.png", width = 6, height = 4)
 
 # Turn this set of scripts into a function with input and outputs and arguments
-# This function below is going to be sourced from /R folder
+# This function below is going to be sourced from /R folder 
 
 plot_data <- function(data) {
   

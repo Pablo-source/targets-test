@@ -24,7 +24,7 @@ clean_data <- function(file) {
   data
 }
 
-## 2-2. Function to plot data
+## 2-2. Function to plot data 
 
 plot_data <- function(data) {
   

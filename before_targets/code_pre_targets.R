@@ -78,7 +78,7 @@ data_nomiss <- data_formatted %>%
                mutate(weekday = wday(Date, week_start=1, label =TRUE)) %>% 
                mutate(Att_TypeI = ifelse(is.na(Att_TypeI),
                                          lag(Att_TypeI,n=7),Att_TypeI)) %>% 
-              filter(!is.na(Att_TypeI))
+               filter(!is.na(Att_TypeI))
   
 data_nomiss
 

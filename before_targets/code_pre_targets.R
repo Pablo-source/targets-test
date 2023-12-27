@@ -1,4 +1,4 @@
-# code_pre_targets.R 
+# code_pre_targets.R script
 
 library(tidyverse)
 library(here)
@@ -77,7 +77,8 @@ Input_prev_week()
 data_nomiss <- data_formatted %>%   
                mutate(weekday = wday(Date, week_start=1, label =TRUE)) %>% 
                mutate(Att_TypeI = ifelse(is.na(Att_TypeI),
-                                         lag(Att_TypeI,n=7),Att_TypeI))
+                                         lag(Att_TypeI,n=7),Att_TypeI)) %>% 
+              filter(!is.na(Att_TypeI))
   
 data_nomiss
 
@@ -93,7 +94,7 @@ Line_chart <-   data_nomiss %>%
        y = "Type I Attendances") +
   theme_light() 
 
-Line_chart
+Line_chart 
   
 ggsave("plots/01 Monthly A&E Type I Attendances 2011-2013.png", width = 6, height = 4)
   

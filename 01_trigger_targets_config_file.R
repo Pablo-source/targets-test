@@ -12,3 +12,8 @@ library(targets)
 tar_edit()
 
 # This tar_edit() function will create a new _targets.R file and also will open it so we can custom it
+
+# Run targets functions to create the pipeline and run it 
+# These are helpful functions for exploring our pipeline:
+# 1. Check overall pileine
+tar_manifest()

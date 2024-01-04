@@ -9,7 +9,7 @@ library(targets)
 
 # Set target options:
 tar_option_set(
-  packages = c("tibble") # packages that your targets need to run
+  packages = c("tibble","tidyverse","here") # packages that your targets need to run
   # format = "qs", # Optionally set the default storage format. qs is fast.
   #
   # For distributed computing in tar_make(), supply a {crew} controller
@@ -49,13 +49,10 @@ tar_source()
 
 # Replace the target list below with your own:
 list(
-  tar_target(
-    name = data,
-    command = tibble(x = rnorm(100), y = rnorm(100))
-    # format = "feather" # efficient storage for large data frames
-  ),
-  tar_target(
-    name = model,
-    command = coefficients(lm(y ~ x, data = data))
-  )
+  # 1-3. Read in data
+  tar_target(file, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),
+  # 2-3. Clean data
+  tar_target(data, command = clean_data(file)),
+  # 3-3 Plot data 
+  tar_target(plot, command = plot_data(data))
 )

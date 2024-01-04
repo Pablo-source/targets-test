@@ -1,6 +1,5 @@
 # scripts_to_functions.R
 
-
 library(tidyverse)
 library(here)
 # We will create just TWO functions: 

@@ -28,7 +28,7 @@ clean_data <- function(file){
   data
 }
 
-# Function 02-02: Plot data
+# Function 02-02: Plot data 
 # The only argument is going to be "data" for the input coming from the previous function
 
 plot_data <- function(data){

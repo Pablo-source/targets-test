@@ -1,0 +1,4 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+clean_data|function|57889b3c8a2a48d0
+plot_data|function|b733833e9e14a223
+file|stem||4fe0297da2f83797|ef46db3751d8e999|-1629806240|Type_I_AE_Attendances_AUG2010_NOV2023.csv|t19727.3521199616s||0|file|local|vector|||||_paths_ missing files Type_I_AE_Attendances_AUG2010_NOV2023.csv

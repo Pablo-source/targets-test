@@ -39,8 +39,5 @@ tar_visnetwork()
 
 ![initial_pipeline_visnetwork](https://github.com/Pablo-source/targets-test/assets/76554081/f3ae16ad-04a8-4af4-8578-8bbb06882ab4)
 
-
-
-
-- 4. Finally we run the pipeline we just built earlier using tar_make() function
+- Finally we run the pipeline we just built earlier using tar_make() function
 tar_make()

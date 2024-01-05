@@ -47,7 +47,7 @@ options(clustermq.scheduler = "multicore")
 tar_source()
 # source("other_functions.R") # Source other scripts as needed.
 
-# Replace the target list below with your own:
+# pipeline
 list(
   # 1-3. Read in data
   tar_target(file, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),

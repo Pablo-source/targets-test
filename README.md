@@ -44,6 +44,12 @@ tar_make()
 
 ## 5. Pipeline has run producing the plot as output
 
+Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets, as we cvan see when running **"tar_visnetwork()"** again:
+
+![Final_pipeline_run](https://github.com/Pablo-source/targets-test/assets/76554081/b420be7b-8ef9-493a-b65d-b24ad10ee64c)
+
+So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets
+
 ![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
 
 

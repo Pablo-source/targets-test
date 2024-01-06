@@ -12,6 +12,8 @@ The second script "scripts_into_functions_targets_prep.R" contains new **functio
 
 ## 3. Functions used by Targets saved in R folder
 
+- The set of functions we want to run as part of our pipeline, are saved in the R folder for Targets to use them when executing the pipeline
+
 - see script "study_functions.R" initial scripts for each analysis step turned into functions to be used in targets pipeline
 
 ## 3.1 Pipeline defined in the _targets.R file

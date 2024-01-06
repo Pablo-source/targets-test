@@ -41,3 +41,9 @@ tar_visnetwork()
 
 - Finally we run the pipeline we just built earlier using tar_make() function
 tar_make()
+
+## 5. Pipeline has run producing the plot as output
+
+![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
+
+

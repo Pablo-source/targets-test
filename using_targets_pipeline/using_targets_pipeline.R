@@ -6,6 +6,7 @@
 # 1. Load targets library
 library(targets)
 
+source("R/study_functions.R")
 # 2. First check for errors in the pipeline using tar_manifest() function
 tar_manifest(fields = command)
 
@@ -16,4 +17,4 @@ tar_visnetwork()
 tar_make()
 
 # This function runs the correct targets in the correct order and saves the results to files
-
+tar_read(plot)

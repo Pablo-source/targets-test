@@ -54,4 +54,24 @@ So now we have an initial pipeline that we can start to modify and expand to inc
 
 ![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
 
+## 6. Modify plot_data target to save plot as .png file
+
+Finally, we can start saving all outputs from our pipeline analysis in a new "objects" folder, by modifying the plot_data function we created earlier
+
+plot_data <- function(data){
+    
+line_chart <-    ggplot(data) +
+    geom_line(aes(x =Datef, y = Att_TypeI)) +
+    labs(title = "A&E Type I Attendances. 2011-2023 period",
+         subtitle = "Type I A&E Attendances by month",
+         x = "Period", y = "Type I Attendances" ) 
+  
+  path_out <- here::here("objects","line_chart.png")
+  ggsave(path_out,line_chart)
+ 
+}
+
+The plot created from our pipeline is now saved as an individual .png chart
+
+![line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/a8ea187c-d87d-46a9-93e1-1c65d00ece06)
 

@@ -34,10 +34,13 @@ clean_data <- function(file){
 
 plot_data <- function(data){
     
-    ggplot(data) +
+line_chart <-    ggplot(data) +
     geom_line(aes(x =Datef, y = Att_TypeI)) +
     labs(title = "A&E Type I Attendances. 2011-2023 period",
          subtitle = "Type I A&E Attendances by month",
          x = "Period", y = "Type I Attendances" ) 
+  
+  path_out <- here::here("objects","line_chart.png")
+  ggsave(path_out,line_chart)
  
 }

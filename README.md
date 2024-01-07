@@ -28,6 +28,9 @@ list(
   tar_target(plot, command = plot_data(data))
 )
 
+![Pipeline_defined_targts_file](https://github.com/Pablo-source/targets-test/assets/76554081/b6f17784-decf-48af-8f7a-33802785837b)
+
+
 ## 4. Specific {targets} functions used to execute the pipeline 
 
 Load targets library

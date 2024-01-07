@@ -22,6 +22,8 @@ pipeline
 list(
   - 1-3. Read in data
   tar_target(file, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),
+  **input .csv file saved at the project folder level, targets will load it to initiate the first pipeline stage**
+
   - 2-3. Clean data
   tar_target(data, command = clean_data(file)),
   - 3-3 Plot data 

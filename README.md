@@ -57,6 +57,7 @@ So now we have an initial pipeline that we can start to modify and expand to inc
 ## 6. Modify plot_data target to save plot as .png file
 
 Finally, we can start saving all pipeline outputs (as the "line_chart.png" file we just created) in a new **"objects"** folder, by modifying the plot_data function we created earlier
+![targets_plot_output_file](https://github.com/Pablo-source/targets-test/assets/76554081/76bc4faa-e591-4e55-ac77-c31849ce5fd5)
 
 plot_data <- function(data){
     

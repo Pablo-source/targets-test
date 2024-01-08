@@ -26,3 +26,8 @@ tar_read(data)
 
 # 2.2 Load objects from targets/objects folder to your environment
 tar_load(data)
+
+# 2.3 After modifying any portion of your targets pipeline,
+# And saving the study-functions.R file we run "tar_outdated()" to find out 
+# which sections of your targets have been modified
+tar_outdated()

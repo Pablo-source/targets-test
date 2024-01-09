@@ -44,7 +44,7 @@ tar_manifest(fields = command)
 - Then check pipeline dependency graph using tar_visnetwork() function
 tar_visnetwork()
 
-![initial_pipeline_visnetwork](https://github.com/Pablo-source/targets-test/assets/76554081/f3ae16ad-04a8-4af4-8578-8bbb06882ab4)
+![Final_pipeline_2024_09_18H](https://github.com/Pablo-source/targets-test/assets/76554081/07cb23bd-d1c7-4cf0-bbaa-868939d38fa0)
 
 - Finally we run the pipeline we just built earlier using tar_make() function
 tar_make()

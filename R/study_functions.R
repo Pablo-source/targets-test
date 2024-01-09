@@ -52,5 +52,5 @@ line_chart <-    ggplot(data) +
   
   path_out <- here::here("objects","line_chart.png") 
   ggsave(path_out,line_chart)
- 
+
 }

@@ -18,6 +18,7 @@ Load required packages first
 library(tibble)
 library(tidyverse)
 library(here)
+library(targets)
 ```
 
 ## Load Targets functions
@@ -30,4 +31,26 @@ source(here("R","study_functions.R"))
 
 ## Create objects from functions
 
-using source_all() function we get the output from each target available in our Environment 
+This adhoc. source_all() function can be used in the future to source any new R script that we might save in the R folder. Where Targets will look for sourcing any R script from. 
+
+```{r}
+source_all("R")
+```
+
+## Data
+
+We use now the output from each target to print the results in our markdown report:
+
+```{r}
+tar_read(data)
+```
+
+## Plot 
+
+In the same way we display the plot from our Targets pipeline in this last section
+
+```{r}
+tar_read(plot)
+```
+
+

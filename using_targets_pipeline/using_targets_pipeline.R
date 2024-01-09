@@ -22,10 +22,14 @@ tar_make()
 # 2. EXPLORING PIPELINE OBJECTS CREATED
 # 2.1 Accessing objects created by Targets pipeline
 # Inside _targets folder, we can access different access created saved in the object folder
+# Load data set created in the pipeline
 tar_read(data)
+# Load plot created in the pipeline
+tar_read(plot)
 
 # 2.2 Load objects from targets/objects folder to your environment
 tar_load(data)
+tar_load(plot)
 
 # 2.3 After modifying any portion of your targets pipeline,
 # And saving the study-functions.R file we run "tar_outdated()" to find out 

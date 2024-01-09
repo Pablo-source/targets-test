@@ -51,9 +51,10 @@ tar_make()
 
 ## 5. Pipeline has run  using Targets objects as producing the markdown report as final output
 
-Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets, as we cvan see when running **"tar_visnetwork()"** again:
+Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
 
-![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/28d9ea5d-10ae-42ea-81b9-c5d63aae2d96)
+The final output of this pipeline is a fully rendered markdown report produced by the markdown file **report.Rmd** has been created and published in this repo:
+![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/196a9c12-938c-4757-bc11-33e74089a355)
 
 
 So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets

@@ -49,10 +49,12 @@ tar_source("R/study_functions.R")
 
 # pipeline
 list(
-  # 1-3. Read in data
+  # 1 Read in data
   tar_target(file, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),
-  # 2-3. Clean data
+  # 2 Clean data
   tar_target(data, command = clean_data(file)),
-  # 3-3 Plot data 
-  tar_target(plot, command = plot_data(data))
+  # 3 Plot data 
+  tar_target(plot, command = plot_data(data)),
+  # 4 save plot
+  tar_target(save_plot, command = save_plot(data))
 )

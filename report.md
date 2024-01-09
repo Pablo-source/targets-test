@@ -74,5 +74,6 @@ last section
 
 ``` r
 tar_read(plot)
-## [1] "/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/Pipeline_functions/targets-test/objects/line_chart.png"
 ```
+
+![](report_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->

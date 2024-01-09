@@ -26,6 +26,7 @@ tar_make()
 tar_read(data)
 # Load plot created in the pipeline
 tar_read(plot)
+tar_read(save_plot)
 
 # 2.2 Load objects from targets/objects folder to your environment
 tar_load(data)

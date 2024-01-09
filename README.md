@@ -83,4 +83,5 @@ The plot created from our pipeline is now saved as an individual .png chart
 
 ## 6. Building a Markdown report using targets objects 
 
-The last step of this project is to build a markdown report populated with the objects created in the pipeline by Targets. The aim is to autonmate the reports creation tasks by running a pipeline making it easier to mantain and update this report in the future.
+The last step of this project is to build a markdown report called **report.Rmd** populated with the objects created in the pipeline by Targets. The aim is to autonmate the reports creation tasks by running a pipeline making it easier to mantain and update this report in the future.
+When rendering **report.Rmd** we obtain a document populated with tables and content from the pipeline. This could be expanded to automate reports ensuring reproducibility. Trying to follow **RAP** principles.

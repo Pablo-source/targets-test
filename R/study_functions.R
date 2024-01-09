@@ -3,6 +3,16 @@
 # Turned set of scripts into a function with input and outputs and arguments
 # This function below is going to be sourced from /R folder
 
+## Source all files in R folder
+source_all <- function(path = "R"){
+  files <- list.files(here::here(path),
+                      full.names = TRUE,
+                      pattern = "R$")
+  suppressMessages(lapply(files,source))
+  invisible(path)
+}
+
+
 # Function 01-02: Clean data
 # The only argument is going to be "file" for the input .csv we are going to import
 

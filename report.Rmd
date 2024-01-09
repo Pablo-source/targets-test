@@ -1,0 +1,33 @@
+---
+title: "report"
+author: "PLR"
+date: "2024-01-08"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, cache = FALSE)
+```
+
+## Setup
+
+Load required packages first
+
+```{r load packages}
+# "tibble","tidyverse","here"
+library(tibble)
+library(tidyverse)
+library(here)
+```
+
+## Load Targets functions
+
+We source required Target functions to create the output elements for this report:
+
+```{r}
+source(here("R","study_functions.R"))
+```
+
+## Create objects from functions
+
+using source_all() function we get the output from each target available in our Environment 

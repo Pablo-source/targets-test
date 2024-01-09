@@ -81,3 +81,6 @@ The plot created from our pipeline is now saved as an individual .png chart
 
 ![line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/a8ea187c-d87d-46a9-93e1-1c65d00ece06)
 
+## 6. Building a Markdown report using targets objects 
+
+The last step of this project is to build a markdown report populated with the objects created in the pipeline by Targets. The aim is to autonmate the reports creation tasks by running a pipeline making it easier to mantain and update this report in the future.

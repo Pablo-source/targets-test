@@ -49,7 +49,7 @@ tar_visnetwork()
 - Finally we run the pipeline we just built earlier using tar_make() function
 tar_make()
 
-## 5. Pipeline has run  using Targets objects as producing the markdown report as final output
+## 5. Pipeline has run  using Targets objects producing the markdown report as final output
 
 Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
 

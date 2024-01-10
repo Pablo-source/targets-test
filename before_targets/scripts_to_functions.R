@@ -12,9 +12,10 @@ library(here)
 here_i_am  <- here::here()
 here_i_am
 
-list.files("data/",".csv")
+list.files (pattern = "csv$")
+
 # [1] "Type_I_AE_Attendances_AUG2010_NOV2023.csv"
-data <- read_csv(here("data/Type_I_AE_Attendances_AUG2010_NOV2023.csv"),col_names = TRUE)
+data <- read_csv(here("Type_I_AE_Attendances_AUG2010_NOV2023.csv"),col_names = TRUE)
 data
 
 data(head)

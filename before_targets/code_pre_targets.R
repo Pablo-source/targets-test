@@ -17,10 +17,11 @@ library(here)
 here_i_am <- here::here()
 here_i_am
 
-list.files("data/",".csv")
+list.files (pattern = "csv$")
 
 # [1] "Type_I_AE_Attendances_AUG2010_NOV2023.csv"
-
+data <- read_csv(here("Type_I_AE_Attendances_AUG2010_NOV2023.csv"),col_names = TRUE)
+data
 
 data(head)
 
@@ -64,3 +65,35 @@ Line_chart <- data_nomiss %>%
        x = "Period", y = "Type I Attendances" ) +
   theme_light()
 Line_chart
+
+# 5. Turn data into TS object
+
+# Implement a SARIMA model 
+# https://spureconomics.com/arima-and-sarima-in-rstudio/
+
+AE_type2_ts_prep <- data_nomiss %>% 
+                    select(Date, Att_TypeI) %>%
+                    mutate(Min_date = min(Date), Max_date = max(Date))
+AE_type2_ts_prep
+
+# House_price_ts_prep data set
+# First column:
+AE_type2_ts_date_v <- AE_type2_ts_prep[,1]
+# Second column: 
+AE_type2_ts <- AE_type2_ts_prep[,2]
+
+# In our example or data is monthly so we will adjust frequency to 12
+# Start will be "2010-08-01" Aug 2010 (2010,8)
+# End will be "2023-11-01" Nov 2023 (2023,11)
+
+AE_type2_to_ts <- data_nomiss %>% 
+                  select(Date, Att_TypeI) %>%
+                  mutate(Min_date = min(Date), Max_date = max(Date)) %>% 
+                  select(Att_TypeI)
+AE_type2_to_ts
+
+library(stats)
+
+AE_type2_ts <- ts(AE_type2_to_ts[,1], start = c(2010, 8), end = c(2023, 11), frequency = 12)
+AE_type2_ts
+

@@ -44,16 +44,18 @@ tar_manifest(fields = command)
 - Then check pipeline dependency graph using tar_visnetwork() function
 tar_visnetwork()
 
-![initial_pipeline_visnetwork](https://github.com/Pablo-source/targets-test/assets/76554081/f3ae16ad-04a8-4af4-8578-8bbb06882ab4)
+![Final_pipeline_2024_09_18H](https://github.com/Pablo-source/targets-test/assets/76554081/07cb23bd-d1c7-4cf0-bbaa-868939d38fa0)
 
 - Finally we run the pipeline we just built earlier using tar_make() function
 tar_make()
 
-## 5. Pipeline has run producing the plot as output
+## 5. Pipeline has run  using Targets objects producing the markdown report as final output
 
-Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets, as we cvan see when running **"tar_visnetwork()"** again:
+Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
 
-![Final_pipeline_run](https://github.com/Pablo-source/targets-test/assets/76554081/b420be7b-8ef9-493a-b65d-b24ad10ee64c)
+The final output of this pipeline is a fully rendered markdown report produced by the markdown file **report.Rmd** has been created and published in this repo:
+![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/196a9c12-938c-4757-bc11-33e74089a355)
+
 
 So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets
 
@@ -81,7 +83,7 @@ The plot created from our pipeline is now saved as an individual .png chart
 
 ![line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/a8ea187c-d87d-46a9-93e1-1c65d00ece06)
 
-## 6. Building a Markdown report using targets objects 
+## 7. Expanding initial Markdown report using targets objects 
 
-The last step of this project is to build a markdown report called **report.Rmd** populated with the objects created in the pipeline by Targets. The aim is to autonmate the reports creation tasks by running a pipeline making it easier to mantain and update this report in the future.
+The last step of this project has been building and rendering a markdown report called **report.Rmd** populated with the objects created in the pipeline by Targets. The aim is to autonmate the reports creation tasks by running a pipeline making it easier to mantain and update this report in the future.
 When rendering **report.Rmd** we obtain a document populated with tables and content from the pipeline. This could be expanded to automate reports ensuring reproducibility. Trying to follow **RAP** principles.

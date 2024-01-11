@@ -68,7 +68,7 @@ Line_chart
 
 # 5. Turn data into TS object
 
-# Implement a SARIMA model 
+# 5.1 Implement a ARIMA model 
 # https://spureconomics.com/arima-and-sarima-in-rstudio/
 
 AE_type2_ts_prep <- data_nomiss %>% 
@@ -97,3 +97,20 @@ library(stats)
 AE_type2_ts <- ts(AE_type2_to_ts[,1], start = c(2010, 8), end = c(2023, 11), frequency = 12)
 AE_type2_ts
 
+# 6. Create an ARIMA model and forecast next 12 months
+
+library(forecast)
+arima_model <- auto.arima(AE_type2_ts)
+
+# Series: AE_type2_ts 
+# ARIMA(1,1,0)(2,0,0)[12]
+
+# 2.2 Forecast next 12 periods
+arima_forecast <- forecast(arima_model, h=12)
+
+# 5.2 Implement a SARIMA model 
+# Create a SARIMA model and forecast next 12 months
+# From previuos ARIMA model (1,1,0)
+# By adding (seasonal = TRUE) paarameter to the auto.arima() function
+sarima110 <- auto.arima(AE_type2_ts, seasonal = TRUE)
+sarima110

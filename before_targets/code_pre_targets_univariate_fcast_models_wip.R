@@ -160,7 +160,8 @@ write.csv(ARIMA_dates,here("objects","ARIMA_forecast.csv"), row.names = TRUE)
 
 TBATS_dates <- cbind.data.frame(Fcasted_dates,tbats_pred_df) %>% 
               select(Fcasted_dates,'Point Forecast','Lo 95','Hi 95') %>% 
-              mutate(Model = 'TBATS') 
+              mutate(Model = 'TBATS', 
+               weekday = wday(Fcasted_dates, week_start=1, label =TRUE))
 TBATS_dates
 write.csv(TBATS_dates,here("objects","TBATS_forecast.csv"), row.names = TRUE)
 
@@ -168,7 +169,7 @@ write.csv(TBATS_dates,here("objects","TBATS_forecast.csv"), row.names = TRUE)
 Forecast_models <- rbind.data.frame(ARIMA_dates,TBATS_dates)
 Forecast_models
 
-Forecast_models_out <- Forecast_models %>% select("Fcasted_dates","Point Forecast","Lo 95","Hi 95","Model")
+Forecast_models_out <- Forecast_models %>% select("Fcasted_dates","Point Forecast","Lo 95","Hi 95",Model,weekday)
 Forecast_models_out
 
 names(Forecast_models)
@@ -200,14 +201,26 @@ Forecast_data <- Forecast_models_out %>%
                         Att_TypeI = 'Point Forecast',
                         Low_95_CI = 'Lo 95',
                         High_95_CI = 'Hi 95',
-                        Model)%>% 
+                        Model,
+                        weekday)%>% 
                 mutate(Type = "Forecast")
 
 Forecast_data
 
 # 9.2 Union both Actual and Forecast data to create model outupt data frame
-# In DPLYR append rows from one or more dataframe to another, use dplyr 's bind_rows() function
 
-Actual_Model_output <-  Actual_data %>% 
-                        bind_rows(Forecast_data)
-Actual_Model_output
+names(Forecast_data)
+names(Actual_data)
+
+# Now we union both data frames using DPLYR bind_rows() function
+# In DPLYR append rows from one or more dataframe to another, use dplyr 's bind_rows() function
+Actual_and_forecast_output <-  Actual_data %>% 
+                               bind_rows(Forecast_data) %>% 
+                               select(Date, Att_TypeI, weekday, Type, Low_95_CI, High_95_CI, Model)
+                            
+Actual_and_forecast_output
+# write out final Actual and Predicted values for TBATS and ARIMA models as .csv file
+write.csv(Actual_and_forecast_output,here("objects","Actual_and_forecast_output.csv"), row.names = TRUE)
+
+# Now we can turn the above steps into a function to run these two univariate ARIMA and TBATS models using Targets
+# And finally to include a plot in our Markdown report displaying Actual and Forecasted Attendances Type I values.

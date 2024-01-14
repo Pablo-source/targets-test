@@ -152,8 +152,10 @@ names(arima_forecast)
 
 ARIMA_dates <- cbind.data.frame(Fcasted_dates,arima_pred_df) %>% 
                select(Fcasted_dates,'Point Forecast','Lo 95','Hi 95') %>% 
-               mutate(Model = 'ARIMA') 
+               mutate(Model = 'ARIMA', 
+               weekday = wday(Fcasted_dates, week_start=1, label =TRUE))
 ARIMA_dates
+
 write.csv(ARIMA_dates,here("objects","ARIMA_forecast.csv"), row.names = TRUE)
 
 TBATS_dates <- cbind.data.frame(Fcasted_dates,tbats_pred_df) %>% 
@@ -172,6 +174,40 @@ Forecast_models_out
 names(Forecast_models)
 write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
 
+# Read in .csv file removing redundant X column
+Forecast_checks <-read.table(here("objects", "ALL_MODELS_forecast.csv"),
+                           header =TRUE, sep =',',stringsAsFactors =TRUE) %>% 
+                  select(-c(X))
 
 ## 9 Combine Actual and Forecasted values into a single data frame 
-# WIP
+# Sun 14 Jan
+# Actual values data set: data_nomiss
+# Forecasted values data set:  Forecast_models_out
+tail(data_nomiss)
+tail(Forecast_models_out)
+
+# 9.1 Create new Type variable to identify Actual and Forecasted values
+names(data_nomiss)
+Actual_data <- data_nomiss %>% 
+               select(Date, Att_TypeI, weekday) %>% 
+               mutate(Type = "Actual")
+Actual_data
+tail(Actual_data)
+
+names(Forecast_models_out)
+Forecast_data <- Forecast_models_out %>% 
+                 select(Date = Fcasted_dates, 
+                        Att_TypeI = 'Point Forecast',
+                        Low_95_CI = 'Lo 95',
+                        High_95_CI = 'Hi 95',
+                        Model)%>% 
+                mutate(Type = "Forecast")
+
+Forecast_data
+
+# 9.2 Union both Actual and Forecast data to create model outupt data frame
+# In DPLYR append rows from one or more dataframe to another, use dplyr 's bind_rows() function
+
+Actual_Model_output <-  Actual_data %>% 
+                        bind_rows(Forecast_data)
+Actual_Model_output

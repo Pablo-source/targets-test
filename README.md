@@ -87,3 +87,8 @@ The plot created from our pipeline is now saved as an individual .png chart
 
 The last step of this project has been building and rendering a markdown report called **report.Rmd** populated with the objects created in the pipeline by Targets. The aim is to autonmate the reports creation tasks by running a pipeline making it easier to mantain and update this report in the future.
 When rendering **report.Rmd** we obtain a document populated with tables and content from the pipeline. This could be expanded to automate reports ensuring reproducibility. Trying to follow **RAP** principles.
+
+### 7.1 Adding an univariate TS model forecast using TBTAS and ARIMA
+
+Using {forecast} package I include two univariate TS models ARIMA and TBATS to forecast the nect 24 monhts of data. This Forecast model is going to be a new Targets in the pipeline.
+And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline

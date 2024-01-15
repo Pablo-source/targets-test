@@ -207,8 +207,7 @@ Forecast_data <- Forecast_models_out %>%
 
 Forecast_data
 
-# 9.2 Union both Actual and Forecast data to create model outupt data frame
-
+# 9.2 Union both Actual and Forecast data to create model output data frame
 names(Forecast_data)
 names(Actual_data)
 

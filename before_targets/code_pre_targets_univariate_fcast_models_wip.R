@@ -1,4 +1,5 @@
-# code_pre_targets.R
+# R Script: code_pre_targets_univariate_fcast_models_wip.R
+# Folder: /before_targets
 
 # code pre targets - Analysis to be run before incorporating it to TARGETS ##
 # Create a pipeline to run several Univariate models  # 
@@ -156,14 +157,39 @@ ARIMA_dates <- cbind.data.frame(Fcasted_dates,arima_pred_df) %>%
                weekday = wday(Fcasted_dates, week_start=1, label =TRUE))
 ARIMA_dates
 
-write.csv(ARIMA_dates,here("objects","ARIMA_forecast.csv"), row.names = TRUE)
+
+# write.csv(ARIMA_dates,here("objects","ARIMA_forecast.csv"), row.names = TRUE)
+
+
+# Retain just first 12 months of the forecast
+# %>% slice(1:3)
+
+ARIMA_dates <- cbind.data.frame(Fcasted_dates,arima_pred_df) %>% 
+                select(Fcasted_dates,'Point Forecast','Lo 95','Hi 95') %>% 
+                mutate(Model = 'ARIMA', 
+                       weekday = wday(Fcasted_dates, week_start=1, label =TRUE)) %>% 
+                slice(1:12) # Keeping 12 first months of forecasted values
+ARIMA_dates
+
+
+write.csv(ARIMA_dates,here("objects","ARIMA_12M_forecast.csv"), row.names = TRUE)
 
 TBATS_dates <- cbind.data.frame(Fcasted_dates,tbats_pred_df) %>% 
               select(Fcasted_dates,'Point Forecast','Lo 95','Hi 95') %>% 
               mutate(Model = 'TBATS', 
                weekday = wday(Fcasted_dates, week_start=1, label =TRUE))
 TBATS_dates
-write.csv(TBATS_dates,here("objects","TBATS_forecast.csv"), row.names = TRUE)
+
+TBATS_dates <- cbind.data.frame(Fcasted_dates,tbats_pred_df) %>% 
+  select(Fcasted_dates,'Point Forecast','Lo 95','Hi 95') %>% 
+  mutate(Model = 'TBATS', 
+         weekday = wday(Fcasted_dates, week_start=1, label =TRUE)) %>% 
+  slice(1:12) # Keeping 12 first months of forecasted values
+TBATS_dates
+
+# write.csv(TBATS_dates,here("objects","TBATS_forecast.csv"), row.names = TRUE)
+write.csv(TBATS_dates,here("objects","TBATS_12M_forecast.csv"), row.names = TRUE)
+
 
 # Combine both models and wrote output as .csv file
 Forecast_models <- rbind.data.frame(ARIMA_dates,TBATS_dates)
@@ -173,10 +199,12 @@ Forecast_models_out <- Forecast_models %>% select("Fcasted_dates","Point Forecas
 Forecast_models_out
 
 names(Forecast_models)
-write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
+
+# write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
+write.csv(Forecast_models_out,here("objects","ALL_MODELS_12_M_forecast.csv"), row.names = TRUE)
 
 # Read in .csv file removing redundant X column
-Forecast_checks <-read.table(here("objects", "ALL_MODELS_forecast.csv"),
+Forecast_checks <-read.table(here("objects", "ALL_MODELS_12_M_forecast.csv"),
                            header =TRUE, sep =',',stringsAsFactors =TRUE) %>% 
                   select(-c(X))
 

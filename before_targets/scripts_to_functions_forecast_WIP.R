@@ -240,11 +240,8 @@ ARIMA_target <- function(forecast_data_prep){
 }
   
  
-
-
-
 # 6. Create an ARIMA model and forecast next 6 months
-library(forecast)
+# library(forecast)
 
 
 # Series: AE_type2_ts 

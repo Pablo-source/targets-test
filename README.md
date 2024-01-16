@@ -91,4 +91,4 @@ When rendering **report.Rmd** we obtain a document populated with tables and con
 ### 7.1 Adding an univariate TS model forecast using TBTAS and ARIMA
 
 Using {forecast} package I include two univariate TS models ARIMA and TBATS to forecast the nect 24 monhts of data. This Forecast model is going to be a new Targets in the pipeline.
-And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline
+And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline. The script containing new targets functions for both ARIMA and TBATS univariate TS model is called **scripts_to_functions_forecast.R**

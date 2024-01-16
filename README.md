@@ -57,7 +57,7 @@ The final output of this pipeline is a fully rendered markdown report produced b
 ![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/196a9c12-938c-4757-bc11-33e74089a355)
 
 
-So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets
+So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets 
 
 ![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
 

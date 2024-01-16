@@ -57,7 +57,7 @@ The final output of this pipeline is a fully rendered markdown report produced b
 ![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/196a9c12-938c-4757-bc11-33e74089a355)
 
 
-So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets
+So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets 
 
 ![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
 
@@ -91,4 +91,4 @@ When rendering **report.Rmd** we obtain a document populated with tables and con
 ### 7.1 Adding an univariate TS model forecast using TBTAS and ARIMA
 
 Using {forecast} package I include two univariate TS models ARIMA and TBATS to forecast the nect 24 monhts of data. This Forecast model is going to be a new Targets in the pipeline.
-And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline
+And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline. The script containing new targets functions for both ARIMA and TBATS univariate TS model is called **scripts_to_functions_forecast.R**

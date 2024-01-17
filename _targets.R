@@ -9,7 +9,7 @@ library(targets)
 
 # Set target options:
 tar_option_set(
-  packages = c("tibble","tidyverse","here") # packages that your targets need to run
+  packages = c("tibble","tidyverse","here","stats","forecast") # packages that your targets need to run
   # format = "qs", # Optionally set the default storage format. qs is fast.
   #
   # For distributed computing in tar_make(), supply a {crew} controller
@@ -56,5 +56,7 @@ list(
   # 3 Plot data 
   tar_target(plot, command = plot_data(data)),
   # 4 save plot
-  tar_target(save_plot, command = save_plot(data))
+  tar_target(save_plot, command = save_plot(data)),
+  # 5 Data prep for ARIMA and TBATS forecasting models
+  tar_target(data_prep_models, command = fcast_data_prep(data)),
 )

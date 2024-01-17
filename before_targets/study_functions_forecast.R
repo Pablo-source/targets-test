@@ -45,9 +45,7 @@ plot_data <- function(data){
   
 }
 
-## 2. Set of Forecast functions required for Targets pipeline
-
-# Function 03: Data prep for ARIMA and TBATS models
+# Function 03: Data prep and TS models
 
 fcast_data_prep <- function(data){
   
@@ -77,9 +75,11 @@ fcast_data_prep <- function(data){
     filter(!is.na(Att_TypeI)) %>% 
     # 4. Turn initial Data Frame into a TS object
     select(Date, Att_TypeI) %>%
-    mutate(Min_date = min(Date), Max_date = max(Date)) %>% 
-    # 5. write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
-    write.csv(Forecast_models_out,here("objects","ALL_MODELS_12_M_forecast.csv"), row.names = TRUE)
+    mutate(Min_date = min(Date), Max_date = max(Date))
   
   forecast_data_prep
+  # 5. write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
+  write.csv(forecast_data_prep,here("objects","Data_prep_for_forecast.csv"), row.names = TRUE)
+  
+  
 }

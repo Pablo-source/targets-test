@@ -240,36 +240,35 @@ ARIMA_target <- function(forecast_data_prep){
 }
   
  
-# 6. Create an ARIMA model and forecast next 6 months
+# Create an ARIMA model and forecast next 6 months. 
 # library(forecast)
 
 
 # Series: AE_type2_ts 
 # ARIMA(1,1,0)(2,0,0)[12]
 
-# 2.2 Forecast next 12 periods using ARIOMA model
-
+# Forecast default next 24 periods using forecast() function for ARIMA model from {forecast}
 tail(data_nomiss)
 arima_forecast <- forecast(arima_model)
 
-# 5.2 Implement a SARIMA model 
+# Implement a SARIMA model 
 # Create a SARIMA model and forecast next 12 months
 # From previuos ARIMA model (1,1,0)
 # By adding (seasonal = TRUE) paarameter to the auto.arima() function
 sarima110 <- auto.arima(AE_type2_ts, seasonal = TRUE)
 
-# 7 Create a TBATS model and forecast next 6 months 
+# Create a TBATS model and forecast next 6 months 
 tbats_fit <-tbats(AE_type2_ts)
 
 # Check first on which month actual data end
 tbats_prediction <- predict(tbats_fit, np=4)
 
 
-## 8 Bundle together ARIMA and TBATS predictions
+## Bundle together ARIMA and TBATS predictions
 arima_pred_df <- as.data.frame(arima_forecast)
 tbats_pred_df <- as.data.frame(tbats_prediction)
 
-# 8.1 Create date variable to match actual values
+# Create date variable to match actual values
 # Create new sequence of dates for forecasted values data frame
 # https://uc-r.github.io/date_sequences/
 
@@ -315,11 +314,11 @@ names(Forecast_models)
 # write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
 write.csv(Forecast_models_out,here("objects","ALL_MODELS_12_M_forecast.csv"), row.names = TRUE)
 
-## 9 Combine Actual and Forecasted values into a single data frame 
+##Combine Actual and Forecasted values into a single data frame 
 tail(data_nomiss)
 tail(Forecast_models_out)
 
-# 9.1 Create new Type variable to identify Actual and Forecasted values
+# Create new Type variable to identify Actual and Forecasted values
 names(data_nomiss)
 
 Actual_data <- data_nomiss %>% 

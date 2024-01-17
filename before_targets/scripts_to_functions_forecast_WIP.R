@@ -214,9 +214,11 @@ forecast_data_prep <- data %>%
   filter(!is.na(Att_TypeI)) %>% 
 # 4. Turn initial Data Frame into a TS object
   select(Date, Att_TypeI) %>%
-  mutate(Min_date = min(Date), Max_date = max(Date))
+  mutate(Min_date = min(Date), Max_date = max(Date)) %>% 
+# 5. write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
+write.csv(Forecast_models_out,here("objects","ALL_MODELS_12_M_forecast.csv"), row.names = TRUE)
 
-  
+forecast_data_prep
 }
 
 

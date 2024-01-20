@@ -1,5 +1,11 @@
 # targets-test
-Project to practise all targets package set of functions
+Project to practise creating analytical pipelines to run models using {targets} library. 
+
+- The {targets} R package user manual:  <https://books.ropensci.org/targets/>
+- Targets walkthrough: <https://books.ropensci.org/targets/walkthrough.html>
+
+## Quick start using Targets
+After installing the package, we load targets “library(targets)”. Then our first step is to run “**use_tergets()**” function. This **creates** a new file called **_tragets.R** that is used to **configure** and **setup** the **pipeline**.
 
 ## 1. Create single scripts for each analysis steps
 

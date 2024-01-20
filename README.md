@@ -7,6 +7,18 @@ Project to practise creating analytical pipelines to run models using {targets} 
 ## Quick start using Targets
 After installing the package, we load targets “library(targets)”. Then our first step is to run “**use_tergets()**” function. This **creates** a new file called **_tragets.R** that is used to **configure** and **setup** the **pipeline**.
 
+Follow these steps then detailed in the R Documentation section of the use_targets() function: 
+
+After you call use_targets(), there is still configuration left to do:
+
+Open ⁠_targets.R⁠ and edit by hand. Follow the comments to write any options, packages, and target definitions that your pipeline requires.
+
+Edit run.R and choose which pipeline function to execute (tar_make(), tar_make_clustermq(), or tar_make_future()).
+
+If applicable, edit clustermq.tmpl and/or future.tmpl to configure settings for your resource manager.
+
+If applicable, configure job.sh, "clustermq.tmpl", and/or "future.tmpl" for your resource manager.
+
 ## 1. Create single scripts for each analysis steps
 
 - In this example I have started creating one script to load the data and another one to create a plot from that data

@@ -56,7 +56,7 @@ list(
   # 3 Plot data 
   tar_target(plot, command = plot_data(data)),
   # 4 save plot
-  tar_target(save_plot, command = save_plot(data))
+  tar_target(savemyplot, command = save_plot(data))
   # 5 Data prep for ARIMA and TBATS forecasting models
   # tar_target(data_prep_models, command = fcast_data_prep(data)),
 )

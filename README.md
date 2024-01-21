@@ -48,8 +48,7 @@ list(
   tar_target(plot, command = plot_data(data))
 )
 
-![Pipeline_defined_targts_file](https://github.com/Pablo-source/targets-test/assets/76554081/b6f17784-decf-48af-8f7a-33802785837b)
-
+![targets_visnetwork_save_plot](https://github.com/Pablo-source/targets-test/assets/76554081/315973d4-0081-436e-bc0c-ce38d7762831)
 
 ## 4. Specific {targets} functions used to execute the pipeline 
 
@@ -62,7 +61,7 @@ tar_manifest(fields = command)
 - Then check pipeline dependency graph using tar_visnetwork() function
 tar_visnetwork()
 
-![Final_pipeline_2024_09_18H](https://github.com/Pablo-source/targets-test/assets/76554081/07cb23bd-d1c7-4cf0-bbaa-868939d38fa0)
+![save_my_plot_visnetwork](https://github.com/Pablo-source/targets-test/assets/76554081/dc3851c6-1a73-4582-bc5c-468b0eec1ab7)
 
 - Finally we run the pipeline we just built earlier using tar_make() function
 tar_make()

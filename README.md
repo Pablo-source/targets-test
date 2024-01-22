@@ -23,6 +23,8 @@ If applicable, configure job.sh, "clustermq.tmpl", and/or "future.tmpl" for your
 
 - In this example I have started creating one script to load the data and another one to create a plot from that data
 
+- See script: before_targets/code_pre_targets.R
+
 ## 2. Turn these single scripts into functions
 
 There is a folder called "before targets" containing individual R scripts called "code_pre_targets.R" this script allows me to plan the analysis.

@@ -95,11 +95,21 @@ The plot created from our pipeline is now saved as an individual .png chart
 
 ![line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/a8ea187c-d87d-46a9-93e1-1c65d00ece06)
 
-## 6. Pipeline has run  using Targets objects producing the markdown report as final output
+## 6. Run pipeline
+
+Fnally we run the pipeline we just built earlier using tar_make() function
+This function runs the correct targets in the correct order and saves the results to files
+**tar_make()**
+
+![image](https://github.com/Pablo-source/targets-test/assets/76554081/3ec037ac-6ab9-4a0a-adac-8515cef7a585)
+
+
+
+## 7. Render Markdown report from Pipeline objects created previous step
 
 Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
 
-The final output of this pipeline is a fully rendered markdown report produced by the markdown file **report.Rmd** has been created and published in this repo:
+The final output of this pipeline is being used to create a fully rendered markdown report produced by the markdown file **report.Rmd** has been created and published in this repo:
 ![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/196a9c12-938c-4757-bc11-33e74089a355)
 
 
@@ -107,12 +117,12 @@ So now we have an initial pipeline that we can start to modify and expand to inc
 
 ![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
 
-## 7. Expanding initial Markdown report using targets objects 
+## 8. Expanding initial Markdown report using targets objects 
 
 The last step of this project has been building and rendering a markdown report called **report.Rmd** populated with the objects created in the pipeline by Targets. The aim is to autonmate the reports creation tasks by running a pipeline making it easier to mantain and update this report in the future.
 When rendering **report.Rmd** we obtain a document populated with tables and content from the pipeline. This could be expanded to automate reports ensuring reproducibility. Trying to follow **RAP** principles.
 
-### 7.1 Adding an univariate TS model forecast using TBTAS and ARIMA
+### 8.1 Adding an univariate TS model forecast using TBTAS and ARIMA
 
 Using {forecast} package I include two univariate TS models ARIMA and TBATS to forecast the nect 24 monhts of data. This Forecast model is going to be a new Targets in the pipeline.
 And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline. The script containing new targets functions for both ARIMA and TBATS univariate TS model is called **scripts_to_functions_forecast.R**

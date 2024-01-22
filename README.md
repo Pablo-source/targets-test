@@ -73,19 +73,7 @@ tar_visnetwork()
 - Finally we run the pipeline we just built earlier using tar_make() function
 tar_make()
 
-## 5. Pipeline has run  using Targets objects producing the markdown report as final output
-
-Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
-
-The final output of this pipeline is a fully rendered markdown report produced by the markdown file **report.Rmd** has been created and published in this repo:
-![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/196a9c12-938c-4757-bc11-33e74089a355)
-
-
-So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets 
-
-![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
-
-## 6. Modify plot_data target to save plot as .png file
+## 5. Modify plot_data target to save plot as .png file
 
 Finally, we can start saving all pipeline outputs (as the "line_chart.png" file we just created) in a new **"objects"** folder, by modifying the plot_data function we created earlier
 ![targets_plot_output_file](https://github.com/Pablo-source/targets-test/assets/76554081/76bc4faa-e591-4e55-ac77-c31849ce5fd5)
@@ -106,6 +94,18 @@ line_chart <-    ggplot(data) +
 The plot created from our pipeline is now saved as an individual .png chart
 
 ![line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/a8ea187c-d87d-46a9-93e1-1c65d00ece06)
+
+## 6. Pipeline has run  using Targets objects producing the markdown report as final output
+
+Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
+
+The final output of this pipeline is a fully rendered markdown report produced by the markdown file **report.Rmd** has been created and published in this repo:
+![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/196a9c12-938c-4757-bc11-33e74089a355)
+
+
+So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets 
+
+![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
 
 ## 7. Expanding initial Markdown report using targets objects 
 

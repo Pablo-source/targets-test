@@ -23,18 +23,22 @@ If applicable, configure job.sh, "clustermq.tmpl", and/or "future.tmpl" for your
 
 - In this example I have started creating one script to load the data and another one to create a plot from that data
 
-- See script: before_targets/code_pre_targets.R
+- See script: before_targets/**code_pre_targets.R**
 
 ## 2. Turn these single scripts into functions
 
 There is a folder called "before targets" containing individual R scripts called "code_pre_targets.R" this script allows me to plan the analysis.
 The second script "scripts_into_functions_targets_prep.R" contains new **functions** based on initial scripts to wwork with Targets package
 
+- See script: before_targets/**scripts_to_functions.R**
+
 ## 3. Functions used by Targets saved in R folder
 
-- The set of functions we want to run as part of our pipeline, are saved in the R folder for Targets to use them when executing the pipeline
+- The set of functions we want to run as part of our pipeline, are saved in the **R folder** for Targets to use them when executing the pipeline
 
 - see script "study_functions.R" initial scripts for each analysis step turned into functions to be used in targets pipeline
+
+- See script:
 
 ## 3.1 Pipeline defined in the _targets.R file
 

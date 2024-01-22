@@ -109,6 +109,8 @@ This function runs the correct targets in the correct order and saves the result
 
 Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
 
+The **tar_read()** function we collect the pipeline output object to be used in specific sections of the Markdown report. For example, to use the data frame we creaetd on the first target we use **tar_read(data)**. To use in the Markdown report the plot we created in the second Target object we use **tar_read(plot)**. This allows us to populate our markdown report with specific objects created alongside the pipeline we just built and ran.
+
 The final output of this pipeline is being used to create a fully rendered markdown report produced by the markdown file **report.Rmd** has been created and published in this repo:
 ![Markdown_report_output](https://github.com/Pablo-source/targets-test/assets/76554081/196a9c12-938c-4757-bc11-33e74089a355)
 

@@ -44,14 +44,15 @@ The second script "scripts_into_functions_targets_prep.R" contains new **functio
 
 pipeline
 list(
-  - 1-3. Read in data
+  - 1-4 Read in data
   tar_target(file, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),
   **input .csv file saved at the project folder level, targets will load it to initiate the first pipeline stage**
-
-  - 2-3. Clean data
+  - 2-4 Clean data
   tar_target(data, command = clean_data(file)),
-  - 3-3 Plot data 
-  tar_target(plot, command = plot_data(data))
+  - 3-4 Plot data 
+  tar_target(plot, command = plot_data(data)),
+  - 4.4 Save plot
+  tar_target(savemyplot, command = save_plot(data))
 )
 
 ![targets_visnetwork_save_plot](https://github.com/Pablo-source/targets-test/assets/76554081/315973d4-0081-436e-bc0c-ce38d7762831)

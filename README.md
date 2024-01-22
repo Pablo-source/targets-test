@@ -103,8 +103,6 @@ This function runs the correct targets in the correct order and saves the result
 
 ![image](https://github.com/Pablo-source/targets-test/assets/76554081/3ec037ac-6ab9-4a0a-adac-8515cef7a585)
 
-
-
 ## 7. Render Markdown report from Pipeline objects created in previous step
 
 Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
@@ -119,7 +117,8 @@ When rendering **report.Rmd** we obtain a document populated with tables and con
 
 So now we have an initial pipeline that we can start to modify and expand to include extra analytical steps in the form of new targets 
 
-![targets_test_final_pipeline_has_ran](https://github.com/Pablo-source/targets-test/assets/76554081/71f23aaa-11b0-4552-8319-fb1c03a41825)
+![rendered_markdown_report_from_targets_pipeline](https://github.com/Pablo-source/targets-test/assets/76554081/302f7f6b-41ad-4c41-9fd8-c65908aa7aa9)
+
 
 ## 8.Adding an univariate TS model forecast using TBTAS and ARIMA
 

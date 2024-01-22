@@ -105,7 +105,7 @@ This function runs the correct targets in the correct order and saves the result
 
 
 
-## 7. Render Markdown report from Pipeline objects created previous step
+## 7. Render Markdown report from Pipeline objects created in previous step
 
 Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
 

@@ -47,6 +47,7 @@ options(clustermq.scheduler = "multicore")
 tar_source("R/study_functions.R")
 # source("other_functions.R") # Source other scripts as needed.
 
+# Replace the target list below with your own:
 # pipeline
 list(
   # 1 Read in data
@@ -56,7 +57,7 @@ list(
   # 3 Plot data 
   tar_target(plot, command = plot_data(data)),
   # 4 save plot
-  tar_target(savemyplot, command = save_plot(data))
+  tar_target(savemyplot, command = save_plot(data)),
   # 5 Data prep for ARIMA and TBATS forecasting models
-  # tar_target(data_prep_models, command = fcast_data_prep(data)),
+  tar_target(data_prep_models, command = fcast_data_prep(data))
 )

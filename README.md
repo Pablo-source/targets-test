@@ -124,3 +124,12 @@ So now we have an initial pipeline that we can start to modify and expand to inc
 
 Using {forecast} package I include two univariate TS models ARIMA and TBATS to forecast the nect 24 monhts of data. This Forecast model is going to be a new Targets in the pipeline.
 And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline. The script containing new targets functions for both ARIMA and TBATS univariate TS model is called **scripts_to_functions_forecast.R**
+
+First I will start preparing the data to work with TS objects to be used with {forecast} package to apply ARIMA and TBATS models
+Created new targets object in the pipeline based on a function called **fcast_data_prep()**
+![image](https://github.com/Pablo-source/targets-test/assets/76554081/be8ad144-c8b8-49ef-94ae-6fde241cae9a)
+
+And this is the visnetwork diagram including the new data preparation target in the pipeline:
+****![image](https://github.com/Pablo-source/targets-test/assets/76554081/fb3e93d1-88a3-49d1-af6e-b987aac712ea)
+![image](https://github.com/Pablo-source/targets-test/assets/76554081/12c45729-deeb-4c1e-8b55-5b98f438b30b)
+

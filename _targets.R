@@ -50,8 +50,8 @@ tar_source("R/study_functions.R")
 # Replace the target list below with your own:
 # pipeline
 list(
-  # 1 Read in data
-  tar_target(file, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),
+  # 1 Read in any pipeline input data from new "data" sub-folder
+  tar_target(file_csv,here("data","Type_I_AE_Attendances_AUG2010_NOV2023.csv"), format = "file"),
   # 2 Clean data
   tar_target(data, command = clean_data(file)),
   # 3 Plot data 

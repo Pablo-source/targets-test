@@ -55,7 +55,8 @@ list(
   tar_target(savemyplot, command = save_plot(data))
 )
 
-![Modified_pipeline_get_data_from_sub_folder](https://github.com/Pablo-source/targets-test/assets/76554081/ad41634f-0bf6-426f-a0aa-4759666595eb)
+![Modified_pipeline_first_target_called_file_csv](https://github.com/Pablo-source/targets-test/assets/76554081/7f42b7dc-1483-4306-bed5-00037c4b732e)
+
 
 ## 4. Specific {targets} functions used to execute the pipeline 
 

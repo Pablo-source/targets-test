@@ -55,7 +55,7 @@ list(
   tar_target(savemyplot, command = save_plot(data))
 )
 
-![targets_visnetwork_save_plot](https://github.com/Pablo-source/targets-test/assets/76554081/315973d4-0081-436e-bc0c-ce38d7762831)
+![Modified_pipeline_get_data_from_sub_folder](https://github.com/Pablo-source/targets-test/assets/76554081/ad41634f-0bf6-426f-a0aa-4759666595eb)
 
 ## 4. Specific {targets} functions used to execute the pipeline 
 

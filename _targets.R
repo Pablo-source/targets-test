@@ -53,7 +53,7 @@ list(
   # 1 Read in any pipeline input data from new "data" sub-folder
   tar_target(file_csv,here("data","Type_I_AE_Attendances_AUG2010_NOV2023.csv"), format = "file"),
   # 2 Clean data
-  tar_target(data, command = clean_data(file)),
+  tar_target(data, command = clean_data(file_csv)),
   # 3 Plot data 
   tar_target(plot, command = plot_data(data)),
   # 4 save plot

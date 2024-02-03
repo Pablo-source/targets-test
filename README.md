@@ -45,10 +45,10 @@ The second script "scripts_into_functions_targets_prep.R" contains new **functio
 pipeline
 list(
   - 1-4 Read in data
-  tar_target(file, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),
+  tar_target(file_csv, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),
   **input .csv file saved in the /data sub-folder, targets will load it to initiate the first pipeline stage**
   - 2-4 Clean data
-  tar_target(data, command = clean_data(file)),
+  tar_target(data, command = clean_data(file_csv)),
   - 3-4 Plot data 
   tar_target(plot, command = plot_data(data)),
   - 4.4 Save plot

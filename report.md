@@ -21,7 +21,7 @@ library(tidyverse)
 ## ✖ dplyr::lag()    masks stats::lag()
 ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 library(here)
-## here() starts at /home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/Pipeline_functions/targets-test
+## here() starts at /home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test
 library(targets)
 ```
 

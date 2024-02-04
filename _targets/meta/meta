@@ -1,9 +1,12 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-clean_data|function|f396740adf696980|||||||||||||||
-data|stem|b47724babfe3c4c9|ebc4cad6c51f92a9|09bde6027bd4b1dd|-2078757027||t19739.8586602063s|029e3f18865b911c|1152|rds|local|vector|||0.178||
+clean_data|function|416f6f025ca3d148|||||||||||||||
+data|stem|b47724babfe3c4c9|3de3a9aaf73da12a|a1ddcc179ee40810|-2078757027||t19757.7070966256s|029e3f18865b911c|1152|rds|local|vector|||0.178||
+data_prep_models|stem|d36ea1299fa8d732|6465c478c61d79d4|e632e6c5f36b8768|753869643||t19757.7070969497s|44e327d1ee1978d7|43|rds|local|vector|||0.025||
+fcast_data_prep|function|3c98889326569e6b|||||||||||||||
 file|stem|3726be31039e5214|4fe0297da2f83797|ef46db3751d8e999|-1629806240|Type_I_AE_Attendances_AUG2010_NOV2023.csv|t19716.9780787037s|283871a157245cd6|2435|file|local|vector|||0.401||
-plot|stem|9686305dd94f27e3|e2b06227c2414cfa|0d1b6723d8b6d379|-476444806||t19739.8586638174s|a0b6047f29ea490f|49152|rds|local|vector|||0.003||
+file_csv|stem|3726be31039e5214|42f18851d0d77cc5|ef46db3751d8e999|599467729|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/Type_I_AE_Attendances_AUG2010_NOV2023.csv|t19757.6912465106s|283871a157245cd6|2435|file|local|vector|||0.75||
+plot|stem|45a8a02e77142a6c|e2b06227c2414cfa|0d1b6723d8b6d379|-476444806||t19757.7070973201s|9a33530416de348f|53358|rds|local|vector|||0.007||
 plot_data|function|c26afab764201b54|||||||||||||||
 save_plot|function|934eda815b41fb83|||||||||||||||
-savemyplot|stem|145da5d010b32469|d07bf4314de40274|d4238b31fcfd08cd|244008460||t19743.7385358815s|f3963c450082b208|143|rds|local|vector|||0.243||
+savemyplot|stem|441f5b6654699c35|d07bf4314de40274|d4238b31fcfd08cd|244008460||t19757.7071007924s|6aac70ce59868a33|131|rds|local|vector|||0.299||
 source_all|function|cee717b8566a96a4|||||||||||||||

@@ -51,6 +51,8 @@ tar_source("R/study_functions.R")
 # pipeline
 list(
   # 1 Read in any pipeline input data from new "data" sub-folder
+  # Created new first target to read data from /data sub-folder, this first target is called "file_csv"
+  # In preparation for future file types such as _xlsx for example.
   tar_target(file_csv,here("data","Type_I_AE_Attendances_AUG2010_NOV2023.csv"), format = "file"),
   # 2 Clean data
   tar_target(data, command = clean_data(file_csv)),

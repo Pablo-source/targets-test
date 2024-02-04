@@ -26,11 +26,11 @@ source_all <- function(path = "R"){
 
 # TARGET 01: Function> clean_data(file) | target name in pipeline: data
 # Function 01: Clean data
-# The only argument is going to be "file" for the input .csv we are going to import
+# The only argument is going to be "file_csv" for the input .csv we are going to import
 
-clean_data <- function(file){
+clean_data <- function(file_csv){
   
-  data <- read_csv(file,col_types = cols()) %>% 
+  data <- read_csv(file_csv,col_types = cols()) %>% 
     as_tibble() %>% 
     # 1. Rename variables and create date variables
     select(Date = Period,Att = `Type 1 Departments - Major A&E`) %>% 

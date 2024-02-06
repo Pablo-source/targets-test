@@ -94,8 +94,6 @@ line_chart <-    ggplot(data) +
 
 The plot created from our pipeline is now saved as an individual .png chart
 
-![line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/a8ea187c-d87d-46a9-93e1-1c65d00ece06)
-
 ## 6. Run pipeline
 
 Fnally we run the pipeline we just built earlier using tar_make() function
@@ -133,4 +131,9 @@ Created new targets object in the pipeline based on a function called **fcast_da
 And this is the visnetwork diagram including the new data preparation target in the pipeline:
 ****![image](https://github.com/Pablo-source/targets-test/assets/76554081/fb3e93d1-88a3-49d1-af6e-b987aac712ea)
 ![image](https://github.com/Pablo-source/targets-test/assets/76554081/12c45729-deeb-4c1e-8b55-5b98f438b30b)
+
+## 9.Adding univariate TS model forecast
+
+Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run *fs:dir_tree("targets-test") to check the list of objects created by Targets after running the pipeline. The Markdown report has been populated by the pipeline objects.
+![dir_tree_after_pipeline_runs](https://github.com/Pablo-source/targets-test/assets/76554081/738a9745-e45a-4e5d-8436-9fc946a625af)
 

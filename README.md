@@ -39,6 +39,7 @@ The second script "scripts_into_functions_targets_prep.R" contains new **functio
 - see script "study_functions.R" initial scripts for each analysis step turned into functions to be used in targets pipeline
 
 - See script: R/**study_functions.R**
+![study_functions](https://github.com/Pablo-source/targets-test/assets/76554081/6e0d0228-e1ba-4adc-bb22-a8f2c75fddb6)
 
 ## 3.1 Pipeline defined in the _targets.R file
 

@@ -129,8 +129,8 @@ Created new targets object in the pipeline based on a function called **fcast_da
 ![image](https://github.com/Pablo-source/targets-test/assets/76554081/be8ad144-c8b8-49ef-94ae-6fde241cae9a)
 
 And this is the visnetwork diagram including the new data preparation target in the pipeline:
-![image](https://github.com/Pablo-source/targets-test/assets/76554081/fb3e93d1-88a3-49d1-af6e-b987aac712ea)
-![image](https://github.com/Pablo-source/targets-test/assets/76554081/12c45729-deeb-4c1e-8b55-5b98f438b30b)
+![visnetwork_ARIMA_model](https://github.com/Pablo-source/targets-test/assets/76554081/f2cb8072-4f43-45da-87cf-f0c36dcaa2cb)
+
 
 ## 9.Adding univariate TS model forecast
 

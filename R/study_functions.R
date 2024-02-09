@@ -78,6 +78,7 @@ save_plot <- function(data){
          x = "Period", y = "Type I Attendances" ) 
   
   path_out <- here::here("objects","line_chart.png") 
+  
   ggsave(path_out,line_chart)
   
 }
@@ -102,5 +103,24 @@ fcast_data_prep <- function(data){
   # 5. write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
   write.csv(data_prep_model,here("objects","data_prep_model.csv"), row.names = TRUE)
   
+}
+
+# TARGET 05:  First we build the new ARIMA function
+
+ARIMA_model <- function(data_prep_model){
+  # 1. Get data from previous target object clean data set is called "data" from initial target object
+  #     for this analysis
+  ARIMA_prep <- data_prep_model %>% 
+    select(Att_TypeI)
+  # Include library(stats) in the _targets file for ts() function
+  ts_OBJECT <- ts(ARIMA_prep[,1], start = c(2010, 8), end = c(2023, 11), frequency = 12)
+  # Include library(forecast) in the _targets file for auto.arima() function
+  arima_model <- auto.arima(ts_OBJECT)
+  arima_model
+  # Write out the new ARIMA model
+  write.csv(ts_OBJECT,here("objects","ts_object.csv"), row.names = TRUE)
+  write.csv(arima_model,here("objects","ARIMA_model.csv"), row.names = TRUE)
   
 }
+
+  

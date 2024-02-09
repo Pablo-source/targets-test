@@ -50,16 +50,16 @@ tar_source("R/study_functions.R")
 # Replace the target list below with your own:
 # pipeline
 list(
-  # 1 Read in any pipeline input data from new "data" sub-folder
+  # Read in any pipeline input data from new "data" sub-folder
   # Created new first target to read data from /data sub-folder, this first target is called "file_csv"
   # In preparation for future file types such as _xlsx for example.
   tar_target(file_csv,here("data","Type_I_AE_Attendances_AUG2010_NOV2023.csv"), format = "file"),
-  # 2 Clean data
+  # 1 Clean data
   tar_target(data, command = clean_data(file_csv)),
-  # 3 Plot data 
+  # 2 Plot data 
   tar_target(plot, command = plot_data(data)),
-  # 4 save plot
+  # 3 save plot
   tar_target(savemyplot, command = save_plot(data)),
-  # 5 Data prep for ARIMA and TBATS forecasting models
-  tar_target(data_prep_models, command = fcast_data_prep(data))
+  # 4 Data prep for ARIMA and TBATS forecasting models
+  tar_target(data_prep_model, command = fcast_data_prep(data))
 )

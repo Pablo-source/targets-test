@@ -89,30 +89,18 @@ fcast_data_prep <- function(data){
   
   # 1. Get data from previous target object clean data set is called "data" from initial target object
   #     for this analysis
-  forecast_data_prep <- data %>% 
+  data_prep_model <- data %>% 
     select(Datef,Att_TypeI) %>% 
-    mutate(
-      Year = substring(Datef,4,6),
-      Month = substring(Datef,1,2),
-      Day = 01,
-      Yearf = paste0(20,Year),
-      date = paste0(Day,"/",Month,"/",Yearf)) %>% 
-    # 2. Transform date into a date variable
-    select(date,Att =Att_TypeI ) %>% 
-    ### format = "%d/%m/%Y")
-    mutate(Dateftd = as.Date(date, format = "%d/%m/%Y")) %>% 
+    mutate(Min_date = min(Datef),
+           Max_date = max(Datef)) %>% 
     # 3. Replace if any missing values by same value previous week
-    mutate(weekday = wday(Dateftd, week_start=1, label =TRUE)) %>% 
-    mutate(Att_TypeI = ifelse(is.na(Att),
-                              lag(Att,n=7),Att)) %>% 
-    filter(!is.na(Att_TypeI)) %>% 
-    # 4. Turn initial Data Frame into a TS object
-    select(Dateftd, Att_TypeI) %>%
-    mutate(Min_date = min(Dateftd), Max_date = max(Dateftd))
-  
-  forecast_data_prep
+    mutate(weekday = wday(Datef, week_start=1, label =TRUE)) %>% 
+    mutate(Att_TypeI = ifelse(is.na(Att_TypeI),
+                              lag(Att_TypeI,n=7),Att_TypeI)) %>% 
+    filter(!is.na(Att_TypeI))
+  data_prep_model
   # 5. write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
-  write.csv(forecast_data_prep,here("objects","Data_prep_for_forecast.csv"), row.names = TRUE)
+  write.csv(data_prep_model,here("objects","data_prep_model.csv"), row.names = TRUE)
   
   
 }

@@ -55,7 +55,7 @@ list(
   - 4.4 Save plot
   tar_target(savemyplot, command = save_plot(data))
 )
-![Pipeline_functions](https://github.com/Pablo-source/targets-test/assets/76554081/f565f3b6-7d74-4787-b02f-a8bf24d18832)
+![Targets_including_ARIMA_model](https://github.com/Pablo-source/targets-test/assets/76554081/7552c4f8-e6df-4d3a-899a-1da67f2aef6c)
 
 
 ## 4. Specific {targets} functions used to execute the pipeline 

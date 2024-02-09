@@ -55,8 +55,7 @@ list(
   - 4.4 Save plot
   tar_target(savemyplot, command = save_plot(data))
 )
-
-![Modified_pipeline_first_target_called_file_csv](https://github.com/Pablo-source/targets-test/assets/76554081/7f42b7dc-1483-4306-bed5-00037c4b732e)
+![Pipeline_functions](https://github.com/Pablo-source/targets-test/assets/76554081/f565f3b6-7d74-4787-b02f-a8bf24d18832)
 
 
 ## 4. Specific {targets} functions used to execute the pipeline 
@@ -70,10 +69,10 @@ tar_manifest(fields = command)
 - Then check pipeline dependency graph using tar_visnetwork() function
 tar_visnetwork()
 
-![save_my_plot_visnetwork](https://github.com/Pablo-source/targets-test/assets/76554081/dc3851c6-1a73-4582-bc5c-468b0eec1ab7)
-
 - Finally we run the pipeline we just built earlier using tar_make() function
 tar_make()
+
+![Pipeline_functions](https://github.com/Pablo-source/targets-test/assets/76554081/41658ab8-959b-4eff-9007-f4ab76ea6f63)
 
 ## 5. Modify plot_data target to save plot as .png file
 

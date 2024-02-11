@@ -136,5 +136,5 @@ And this is the visnetwork diagram including the new ARIMA model target as the l
 
 Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run 'fs:dir_tree("targets-test")' to check the list of objects created by Targets after running the pipeline. The Markdown report has been populated by the pipeline objects.
 
-![dir_tree_after_pipeline_runs](https://github.com/Pablo-source/targets-test/assets/76554081/738a9745-e45a-4e5d-8436-9fc946a625af)
+![dir_tree_targets_test_ARIMA_model](https://github.com/Pablo-source/targets-test/assets/76554081/afe91093-42d9-4368-bb59-60150ba645c3)
 

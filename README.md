@@ -95,7 +95,14 @@ So now we have an initial pipeline that we can start to modify and expand to inc
 ![rendered_markdown_report_from_targets_pipeline](https://github.com/Pablo-source/targets-test/assets/76554081/302f7f6b-41ad-4c41-9fd8-c65908aa7aa9)
 
 
-## 8.Adding univariate TS model forecast using TBTAS and ARIMA
+## 8.Adding univariate TS model forecast and merging input files
+
+First we will merge all incoming .csv files 
+![06_pipeline_visnetwork_merge_files_section](https://github.com/Pablo-source/targets-test/assets/76554081/574eaba3-8cd6-4a1f-ae55-5e2bc59fe028)
+
+As part of the data preparation stage for future modelling pipeline
+
+![02_Tar_visnetwork_load_csv_ARIMA](https://github.com/Pablo-source/targets-test/assets/76554081/1700eabd-2b73-4e99-88c7-e1af44218bef)
 
 Using {forecast} package I include two univariate TS models ARIMA and TBATS to forecast the nect 24 monhts of data. This Forecast model is going to be a new Targets in the pipeline.
 And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline. The script containing new targets functions for both ARIMA and TBATS univariate TS model is called **scripts_to_functions_forecast.R**
@@ -105,10 +112,16 @@ Created new targets object in the pipeline based on a function called **fcast_da
 ![image](https://github.com/Pablo-source/targets-test/assets/76554081/be8ad144-c8b8-49ef-94ae-6fde241cae9a)
 
 And this is the visnetwork diagram including the new ARIMA model target as the latest object added to the pipeline:
-![visnetwork_ARIMA_model](https://github.com/Pablo-source/targets-test/assets/76554081/f2cb8072-4f43-45da-87cf-f0c36dcaa2cb)
+
+![04_Tar_visnetwork_ARIMA_model_section](https://github.com/Pablo-source/targets-test/assets/76554081/6b60128a-ce9a-42df-969f-cfa6873d1bfb)
+
+## 10. Pipeline run output
+
+This is the output of the complated pipeline run, with dataframes saved and required .csv files saved in the \objects folder
+![05_Pipeline_completed_merged_files](https://github.com/Pablo-source/targets-test/assets/76554081/07cc3ba1-dfc9-4a36-b417-d90d72dc4935)
 
 
-## 9.Adding univariate TS model forecast
+## 11.Adding univariate TS model forecast
 
 Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run 'fs:dir_tree("targets-test")' to check the list of objects created by Targets after running the pipeline. The Markdown report has been populated by the pipeline objects.
 

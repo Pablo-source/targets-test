@@ -1,5 +1,4 @@
 # using_targets_pipeline.R
-
 # At this stage we start by loading {targets} to use specific functions 
 # to run the pipeline we have just created in the _targets.R file
 
@@ -23,14 +22,18 @@ tar_make()
 # 2.1 Accessing objects created by Targets pipeline
 # Inside _targets folder, we can access different access created saved in the object folder
 # Load data set created in the pipeline
-tar_read(data)
-# Load plot created in the pipeline
-tar_read(plot)
-tar_read(save_plot)
+tar_read(data_typeone) # Ingested Type I data. Target created “data_typeone” in the pipeline
+tar_read(data_typetwo) # Ingested Type II data. Target created “data_typetwo” in the pipeline
+tar_read(data_typethree) # Ingested Type III data. Target created “data_typethree” in the pipeline
+tar_read(one_two_combined) # combined previous two .csv files
+# New object combining all three merged files
+tar_read(one_two_three_combined)
 
 # 2.2 Load objects from targets/objects folder to your environment
 tar_load(data)
 tar_load(plot)
+tar_load(data_ts)
+tar_load(one_two_combined)
 
 # 2.3 After modifying any portion of your targets pipeline,
 # And saving the study-functions.R file we run "tar_outdated()" to find out 

@@ -61,7 +61,7 @@ list(
   # Pipeline section clean AE data prior to merge them
   tar_target(data_typeone, command = clean_type1_data(Type1_ATT_file)),
   tar_target(data_typetwo, command = clean_type2_data(Type2_ATT_file)),
-  tar_target(data_typethree, command = clean_type1_data(Type3_ATT_file)),
+  tar_target(data_typethree, command = clean_type3_data(Type3_ATT_file)),
   # Merge previous three cleansed files
   tar_target(one_two_combined, command = merge_files(data_typeone,data_typetwo)),
   tar_target(one_two_three_combined, command = merge_all_files(one_two_combined,data_typethree)),
@@ -73,7 +73,5 @@ list(
   # 3 save plot
   tar_target(savemyplot, command = save_plot(data)),
   # 4 Data prep for ARIMA and TBATS forecasting models
-  tar_target(data_prep_model, command = fcast_data_prep(data)),
-  # 5 ARIMA model
-  tar_target(arima_model, command = ARIMA_model(data_prep_model))
+  tar_target(data_prep_model, command = fcast_data_prep(data))
 )

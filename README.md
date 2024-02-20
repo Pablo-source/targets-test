@@ -44,19 +44,13 @@ The second script "scripts_into_functions_targets_prep.R" contains new **functio
 ## 3.1 Pipeline defined in the _targets.R file
 
 pipeline
-list(
   - 1-4 Read in data
-  tar_target(file_csv, "Type_I_AE_Attendances_AUG2010_NOV2023.csv", format = "file"),
-  **input .csv file saved in the /data sub-folder, targets will load it to initiate the first pipeline stage**
   - 2-4 Clean data
-  tar_target(data, command = clean_data(file_csv)),
   - 3-4 Plot data 
-  tar_target(plot, command = plot_data(data)),
-  - 4.4 Save plot
-  tar_target(savemyplot, command = save_plot(data))
+  - 4-4 Merge files
 )
-![Targets_including_ARIMA_model](https://github.com/Pablo-source/targets-test/assets/76554081/7552c4f8-e6df-4d3a-899a-1da67f2aef6c)
 
+![03_Targets_pipeline_merge_files_done](https://github.com/Pablo-source/targets-test/assets/76554081/bc1a7d10-5663-4f5f-b933-85166186c776)
 
 ## 4. Specific {targets} functions used to execute the pipeline 
 
@@ -74,33 +68,15 @@ tar_make()
 
 ![Pipeline_functions](https://github.com/Pablo-source/targets-test/assets/76554081/41658ab8-959b-4eff-9007-f4ab76ea6f63)
 
-## 5. Modify plot_data target to save plot as .png file
-
-Finally, we can start saving all pipeline outputs (as the "line_chart.png" file we just created) in a new **"objects"** folder, by modifying the plot_data function we created earlier
-![targets_plot_output_file](https://github.com/Pablo-source/targets-test/assets/76554081/76bc4faa-e591-4e55-ac77-c31849ce5fd5)
-
-plot_data <- function(data){
-    
-line_chart <-    ggplot(data) +
-    geom_line(aes(x =Datef, y = Att_TypeI)) +
-    labs(title = "A&E Type I Attendances. 2011-2023 period",
-         subtitle = "Type I A&E Attendances by month",
-         x = "Period", y = "Type I Attendances" ) 
-  
-  path_out <- here::here("objects","line_chart.png")
-  ggsave(path_out,line_chart)
- 
-}
-
 The plot created from our pipeline is now saved as an individual .png chart
 
-## 6. Run pipeline
+## 5. Run pipeline
 
 Fnally we run the pipeline we just built earlier using tar_make() function
 This function runs the correct targets in the correct order and saves the results to files
 **tar_make()**
 
-![image](https://github.com/Pablo-source/targets-test/assets/76554081/3ec037ac-6ab9-4a0a-adac-8515cef7a585)
+![05_Pipeline_completed_merged_files](https://github.com/Pablo-source/targets-test/assets/76554081/a4c488bf-92ac-49f8-825e-970fad4fc6e2)
 
 ## 7. Render Markdown report from Pipeline objects created in previous step
 

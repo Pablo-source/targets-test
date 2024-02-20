@@ -51,9 +51,21 @@ tar_source("R/study_functions.R")
 # pipeline
 list(
   # Read in any pipeline input data from new "data" sub-folder
-  # Created new first target to read data from /data sub-folder, this first target is called "file_csv"
-  # In preparation for future file types such as _xlsx for example.
   tar_target(file_csv,here("data","Type_I_AE_Attendances_AUG2010_NOV2023.csv"), format = "file"),
+  # DATA INGESTION
+  # Ingest three AE data  .csv files downloaded from NHSE website
+  tar_target(Type1_ATT_file,here("data","AE_TYPE_1_ATT_AUG10_JAN24.csv"),format = "file"),
+  tar_target(Type2_ATT_file,here("data","AE_TYPE_2_ATT_AUG10_JAN24.csv"),format = "file"),
+  tar_target(Type3_ATT_file,here("data","AE_TYPE_3_ATT_AUG10_JAN24.csv"),format = "file"),
+  # MERGE FILES
+  # Pipeline section clean AE data prior to merge them
+  tar_target(data_typeone, command = clean_type1_data(Type1_ATT_file)),
+  tar_target(data_typetwo, command = clean_type2_data(Type2_ATT_file)),
+  tar_target(data_typethree, command = clean_type1_data(Type3_ATT_file)),
+  # Merge previous three cleansed files
+  tar_target(one_two_combined, command = merge_files(data_typeone,data_typetwo)),
+  tar_target(one_two_three_combined, command = merge_all_files(one_two_combined,data_typethree)),
+  # FIT ARIMA model
   # 1 Clean data
   tar_target(data, command = clean_data(file_csv)),
   # 2 Plot data 

@@ -75,4 +75,16 @@ merge_all_files <-function(one_two_combined,data_typethree) {
   all_three_files_combined # Important always place combined file as standalone object end of function
 }
 
+# TARGET 06: Data prep for plots
+format_data_plots <- function(all_three_files_combined) {
   
+  data_for_plot <- all_three_files_combined %>% 
+    mutate(
+           Year = substring(Period,5,6),
+           Month = substring(Period,1,3),
+           Day = 01,
+           Yearf = paste0(20,Year),
+           date = paste0(Yearf,"/",Month,"/",Day)) %>% 
+  mutate(datef = as.Date(date, format = "%Y/%b/%d"))
+  data_for_plot
+}

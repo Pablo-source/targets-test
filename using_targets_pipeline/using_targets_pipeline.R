@@ -27,7 +27,10 @@ tar_read(data_typetwo) # Ingested Type II data. Target created “data_typetwo�
 tar_read(data_typethree) # Ingested Type III data. Target created “data_typethree” in the pipeline
 tar_read(one_two_combined) # combined previous two .csv files
 # New object combining all three merged files
-tar_read(one_two_three_combined)
+tar_read(all_three_files_combined)
+# Object ready for plot
+tar_read(data_for_plot)
+
 
 # 2.2 Load objects from targets/objects folder to your environment
 tar_load(data)

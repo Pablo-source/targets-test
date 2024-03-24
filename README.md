@@ -105,6 +105,8 @@ So now we have an initial pipeline that we can start to modify and expand to inc
 
 First we will merge all incoming .csv files, then we combine them into a single file and we use this new combined data frmae to populate our Markdown report.
 
+This is the output usuing tar_visnetwork() function to check pipeline dependency graph 
+
 ![2024-03-24_17-52_Create_save_line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/e2e82a4e-b639-4019-9251-267ef8be3f12)
 
 As part of the data preparation stage for future modelling pipeline

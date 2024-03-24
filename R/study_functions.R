@@ -27,6 +27,7 @@ clean_type1_data <- function(Type1_ATT_file){
 
 # TARGET 02: Function to import Type2_ATT_file
 clean_type2_data <- function(Type2_ATT_file){
+  
   data_typetwo <- read_csv(Type2_ATT_file,col_types = cols()) %>%
     as_tibble() %>%
     # 1. Rename variables and create date variables
@@ -37,6 +38,7 @@ clean_type2_data <- function(Type2_ATT_file){
 }
 # TARGET 03: Function to import Type3_ATT_file
 clean_type3_data <- function(Type3_ATT_file){
+  
   data_typethree <- read_csv(Type3_ATT_file,col_types = cols()) %>%
     as_tibble() %>%
     # 1. Rename variables and create date variables
@@ -48,6 +50,7 @@ clean_type3_data <- function(Type3_ATT_file){
 
 # TARGET 04: Combine first two files into one
 merge_files <-function(data_typeone,data_typetwo) {
+  
   file_one  <- data_typeone
   file_two  <- data_typetwo
   one_two <- right_join(file_one,file_two,
@@ -57,6 +60,19 @@ merge_files <-function(data_typeone,data_typetwo) {
   one_two_combined # Important always place combined file as standalone object end of function
 }
 
-
+# TARGET 05: Combine merged two previous file and file_three
+merge_all_files <-function(one_two_combined,data_typethree) {
+  
+  file_two_merged <-one_two_combined
+  file_three<-data_typethree
+  
+  all_three_files<-right_join(file_two_merged,file_three,
+                              by = join_by(Period == Period))
+  
+  all_three_files_combined <-all_three_files
+  
+  write.csv(all_three_files_combined,here("objects","one_two_three_combined.csv"), row.names = TRUE)
+  all_three_files_combined # Important always place combined file as standalone object end of function
+}
 
   

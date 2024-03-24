@@ -63,8 +63,10 @@ list(
   tar_target(data_typethree, command = clean_type3_data(Type3_ATT_file)),
   # Merge previous three cleansed files
   # Merge Type1 with Type2 att files
-  tar_target(one_two_combined, command = merge_files(data_typeone,data_typetwo))
-  # 3. PLOT DATA 
+  tar_target(one_two_combined, command = merge_files(data_typeone,data_typetwo)),
+  # Merge last file Type3 with previous two ones
+  tar_target(all_three_files_combined, command = merge_all_files(one_two_combined,data_typethree))
+    # 3. PLOT DATA 
 
   # 3.1 save plot
 

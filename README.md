@@ -109,7 +109,6 @@ As part of the data preparation stage for future modelling pipeline
 ## 8. Pipeline run output
 
 This is the output of the complated pipeline run, with dataframes saved and required .csv files saved in the \objects folder
-![2024-03-24_17-55_pipeline_including_chart_done](https://github.com/Pablo-source/targets-test/assets/76554081/f7dd2b57-2645-4b54-8e6a-2982c8030a85)
 
 After using **tar_make()** function we get the complete report of which sections of the pipeline have ran
 

@@ -63,6 +63,8 @@ library(targets)
 - First check for errors in the pipeline using tar_manifest() function
 tar_manifest(fields = command)
 
+![2024-03-24_18-38_tar_manifest_output](https://github.com/Pablo-source/targets-test/assets/76554081/a40d770b-77d4-4c70-913e-2638fef3656a)
+
 - Then check pipeline dependency graph using tar_visnetwork() function
 tar_visnetwork()
 
@@ -72,6 +74,7 @@ tar_make()
 ![Pipeline_functions](https://github.com/Pablo-source/targets-test/assets/76554081/41658ab8-959b-4eff-9007-f4ab76ea6f63)
 
 The plot created from our pipeline is now saved as an individual .png chart
+
 
 ## 5. Run pipeline
 

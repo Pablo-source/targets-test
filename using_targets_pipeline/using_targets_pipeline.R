@@ -10,11 +10,9 @@ library(targets)
 source("R/study_functions.R")
 # 1.2 First check for errors in the pipeline using tar_manifest() function
 tar_manifest(fields = command)
-
 # 1.3 Then check pipeline dependency graph using tar_visnetwork() function
 tar_visnetwork()
-
-# 1.4 Finally we run the pipeline we just built earlier using tar_make() function
+# 1.4 Finaly we run the pipeline we just built earlier using tar_make() function
 # This function runs the correct targets in the correct order and saves the results to files
 tar_make()
 
@@ -27,7 +25,11 @@ tar_read(data_typetwo) # Ingested Type II data. Target created “data_typetwo�
 tar_read(data_typethree) # Ingested Type III data. Target created “data_typethree” in the pipeline
 tar_read(one_two_combined) # combined previous two .csv files
 # New object combining all three merged files
-tar_read(one_two_three_combined)
+tar_read(all_three_files_combined)
+# Object ready for plot
+tar_read(data_for_plot)
+# Read chart created latest target
+tar_read(line_chart)
 
 # 2.2 Load objects from targets/objects folder to your environment
 tar_load(data)

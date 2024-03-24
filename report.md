@@ -50,21 +50,43 @@ We use now the output from each target to print the results in our
 markdown report:
 
 ``` r
-tar_read(data)
-## # A tibble: 160 × 2
-##    Datef      Att_TypeI
-##    <date>         <dbl>
-##  1 2010-08-01   1138652
-##  2 2010-09-01   1150728
-##  3 2010-10-01   1163143
-##  4 2010-11-01   1111295
-##  5 2010-12-01   1159204
-##  6 2011-01-01   1133881
-##  7 2011-02-01   1053707
-##  8 2011-03-01   1225222
-##  9 2011-04-01   1197213
-## 10 2011-05-01   1221687
-## # ℹ 150 more rows
+tar_read(data_typeone) 
+## # A tibble: 162 × 2
+##    Period Type1_ATT
+##    <chr>      <dbl>
+##  1 Aug-10   1138652
+##  2 Sep-10   1150728
+##  3 Oct-10   1163143
+##  4 Nov-10   1111295
+##  5 Dec-10   1159204
+##  6 Jan-11   1133881
+##  7 Feb-11   1053707
+##  8 Mar-11   1225222
+##  9 Apr-11   1197213
+## 10 May-11   1221687
+## # ℹ 152 more rows
+```
+
+## Data all files combined
+
+We check the final dataframe created after merging all three files:
+
+``` r
+tar_read(one_two_combined) 
+## # A tibble: 162 × 3
+##    Period Type1_ATT Type2_ATT
+##    <chr>      <dbl>     <dbl>
+##  1 Aug-10   1138652     54371
+##  2 Sep-10   1150728     55181
+##  3 Oct-10   1163143     54961
+##  4 Nov-10   1111295     53727
+##  5 Dec-10   1159204     45536
+##  6 Jan-11   1133881     51585
+##  7 Feb-11   1053707     51249
+##  8 Mar-11   1225222     57900
+##  9 Apr-11   1197213     54042
+## 10 May-11   1221687     57067
+## # ℹ 152 more rows
 ```
 
 ## Plot
@@ -73,7 +95,6 @@ In the same way we display the plot from our Targets pipeline in this
 last section
 
 ``` r
-tar_read(plot)
+tar_read(line_chart)
+## [1] "/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/objects/line_chart.png"
 ```
-
-![](report_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->

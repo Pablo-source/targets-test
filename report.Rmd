@@ -42,7 +42,15 @@ source_all("R")
 We use now the output from each target to print the results in our markdown report:
 
 ```{r}
-tar_read(data)
+tar_read(data_typeone) 
+```
+
+## Data all files combined
+
+We check the final dataframe created after merging all three files:
+
+```{r}
+tar_read(one_two_combined) 
 ```
 
 ## Plot 
@@ -50,7 +58,7 @@ tar_read(data)
 In the same way we display the plot from our Targets pipeline in this last section
 
 ```{r}
-tar_read(plot)
+tar_read(line_chart)
 ```
 
 

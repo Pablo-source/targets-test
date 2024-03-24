@@ -24,6 +24,7 @@ clean_type1_data <- function(Type1_ATT_file){
     select(Period,Type1_ATT)
   data_typeone
 }
+
 # TARGET 02: Function to import Type2_ATT_file
 clean_type2_data <- function(Type2_ATT_file){
   data_typetwo <- read_csv(Type2_ATT_file,col_types = cols()) %>%
@@ -44,7 +45,8 @@ clean_type3_data <- function(Type3_ATT_file){
     select(Period,Type3_ATT)
   data_typethree
 }
-# TARGET 04: Combine all three datasets into one
+
+# TARGET 04: Combine first two files into one
 merge_files <-function(data_typeone,data_typetwo) {
   file_one  <- data_typeone
   file_two  <- data_typetwo
@@ -53,76 +55,6 @@ merge_files <-function(data_typeone,data_typetwo) {
   one_two_combined <-one_two
   write.csv(one_two_combined,here("objects","one_two_combined.csv"), row.names = TRUE)
   one_two_combined # Important always place combined file as standalone object end of function
-}
-# TARGET 05: Combine merged two previous file and file_three
-merge_all_files <-function(one_two_combined,data_typethree) {
-  file_two<-one_two_combined
-  file_three<-data_typethree
-  all_three_files<-right_join(file_two,file_three,
-                              by = join_by(Period == Period))
-  one_two_three_combined <-all_three_files
-  write.csv(one_two_three_combined,here("objects","one_two_three_combined.csv"), row.names = TRUE)
-  one_two_three_combined # Important always place combined file as standalone object end of function
-}
-
-
-# TARGET 06: Function> clean_data(file) | target name in pipeline: data
-# Function 01: Clean data
-# The only argument is going to be "file_csv" for the input .csv we are going to import
-
-clean_data <- function(file_csv){
-  
-  data <- read_csv(file_csv,col_types = cols()) %>% 
-    as_tibble() %>% 
-    # 1. Rename variables and create date variables
-    select(Date = Period,Att = `Type 1 Departments - Major A&E`) %>% 
-    mutate(Year = substring(Date,4,6),Month = substring(Date,1,2),Day = 01,
-           Yearf = paste0(20,Year),
-           date = paste0(Day,"/",Month,"/",Yearf)) %>% 
-    select(date,Att) %>% 
-    mutate(Datef = as.Date(date, format = "%d/%m/%Y")) %>% 
-    select(Datef,Att) %>%   
-    #  3. Account for missing values
-    # This line below displays weekdays as character Mon,Tue, Wed..
-    mutate(weekday = wday(Datef, week_start=1, label =TRUE)) %>% 
-    mutate(Att_TypeI = ifelse(is.na(Att),
-                              lag(Att,n=7),Att)) %>% 
-    filter(!is.na(Att_TypeI)) %>% 
-    select(Datef,Att_TypeI)
-  
-  data
-}
-
-# TARGET 07: Function> plot_data(data)  | target name in pipeline: plot
-# Function 02: Plot data
-# The only argument is going to be "data" for the input coming from the previous function
-
-plot_data <- function(data){
-  
-  ggplot(data) +
-    geom_line(aes(x =Datef, y = Att_TypeI)) +
-    labs(title = "A&E Type I Attendances. 2011-2023 period",
-         subtitle = "Type I A&E Attendances by month",
-         x = "Period", y = "Type I Attendances" ) 
-  
-  
-}
-
-# TARGET 08: Function> save_plot(data)  | target name in pipeline: savemyplot 
-# Function 03: Save plot in folder 
-
-save_plot <- function(data){
-  
-  line_chart <-    ggplot(data) +
-    geom_line(aes(x =Datef, y = Att_TypeI)) +
-    labs(title = "A&E Type I Attendances. 2011-2023 period",
-         subtitle = "Type I A&E Attendances by month",
-         x = "Period", y = "Type I Attendances" ) 
-  line_chart
-  path_out <- here::here("objects","line_chart.png") 
-  
-  ggsave(path_out,line_chart)
-  
 }
 
 

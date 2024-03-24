@@ -48,10 +48,12 @@ pipeline
   - 1-4 Read in data
   - 2-4 Clean data
   - 3-4 Merge files
-  - 3-4 Plot data 
+  - 3-4 Plot data
+  - After the pipeline run we can run **report.Rmd** Markdown report and populate it with objects created by Targets pipeline. 
 )
 
-![2024-03-24_18-14_final_pipeline_merge_plot_files](https://github.com/Pablo-source/targets-test/assets/76554081/8c953784-fd65-4f91-9299-91d9d5711f81)
+![2024-03-24_18-22_report_rmd_markdown](https://github.com/Pablo-source/targets-test/assets/76554081/e0c3742f-c2f0-424c-a409-ea675abd4d6c)
+
 
 ## 4. Specific {targets} functions used to execute the pipeline 
 

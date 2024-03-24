@@ -98,30 +98,22 @@ So now we have an initial pipeline that we can start to modify and expand to inc
 ![rendered_markdown_report_from_targets_pipeline](https://github.com/Pablo-source/targets-test/assets/76554081/302f7f6b-41ad-4c41-9fd8-c65908aa7aa9)
 
 
-## 7.Adding univariate TS model forecast and merging input files
+## 7. General pipeline structure using visnetwork 
 
-First we will merge all incoming .csv files 
-![06_pipeline_visnetwork_merge_files_section](https://github.com/Pablo-source/targets-test/assets/76554081/574eaba3-8cd6-4a1f-ae55-5e2bc59fe028)
+First we will merge all incoming .csv files, then we combine them into a single file and we use this new combined data frmae to populate our Markdown report.
+
+![2024-03-24_17-52_Create_save_line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/e2e82a4e-b639-4019-9251-267ef8be3f12)
 
 As part of the data preparation stage for future modelling pipeline
-
-![02_Tar_visnetwork_load_csv_ARIMA](https://github.com/Pablo-source/targets-test/assets/76554081/1700eabd-2b73-4e99-88c7-e1af44218bef)
-
-Using {forecast} package I include two univariate TS models ARIMA and TBATS to forecast the nect 24 monhts of data. This Forecast model is going to be a new Targets in the pipeline.
-And also It will be included as a new section in the new rendered Markdown report as a final output from the pipeline. The script containing new targets functions for both ARIMA and TBATS univariate TS model is called **scripts_to_functions_forecast.R**
-
-First I will start preparing the data to work with TS objects to be used with {forecast} package to apply ARIMA and TBATS models
-Created new targets object in the pipeline based on a function called **fcast_data_prep()**
-![image](https://github.com/Pablo-source/targets-test/assets/76554081/be8ad144-c8b8-49ef-94ae-6fde241cae9a)
-
-And this is the visnetwork diagram including the new ARIMA model target as the latest object added to the pipeline:
-
-![04_Tar_visnetwork_ARIMA_model_section](https://github.com/Pablo-source/targets-test/assets/76554081/6b60128a-ce9a-42df-969f-cfa6873d1bfb)
 
 ## 8. Pipeline run output
 
 This is the output of the complated pipeline run, with dataframes saved and required .csv files saved in the \objects folder
-![05_Pipeline_completed_merged_files](https://github.com/Pablo-source/targets-test/assets/76554081/07cc3ba1-dfc9-4a36-b417-d90d72dc4935)
+![2024-03-24_17-55_pipeline_including_chart_done](https://github.com/Pablo-source/targets-test/assets/76554081/f7dd2b57-2645-4b54-8e6a-2982c8030a85)
+
+After using **tar_make()** function we get the complete report of which sections of the pipeline have ran
+
+![2024-03-24_17-55_pipeline_including_chart_done](https://github.com/Pablo-source/targets-test/assets/76554081/86d5a95d-8df7-4d0c-8914-fdc53af5e861)
 
 
 ## 9.Adding univariate TS model forecast
@@ -130,3 +122,6 @@ Once the pipeline has run, before we implement a new feature (including a simple
 
 ![dir_tree_targets_test_ARIMA_model](https://github.com/Pablo-source/targets-test/assets/76554081/afe91093-42d9-4368-bb59-60150ba645c3)
 
+First I will start preparing the data to work with TS objects to be used with {forecast} package to apply ARIMA and TBATS models
+Created new targets object in the pipeline based on a function called **fcast_data_prep()**
+![image](https://github.com/Pablo-source/targets-test/assets/76554081/be8ad144-c8b8-49ef-94ae-6fde241cae9a)

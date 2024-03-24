@@ -51,13 +51,12 @@ tar_source("R/study_functions.R")
 # pipeline
 list(
   # Read in any pipeline input data from new "data" sub-folder
-  tar_target(file_csv,here("data","Type_I_AE_Attendances_AUG2010_NOV2023.csv"), format = "file"),
-  # DATA INGESTION
+  # 1. DATA INGESTION
   # Ingest three AE data  .csv files downloaded from NHSE website
   tar_target(Type1_ATT_file,here("data","AE_TYPE_1_ATT_AUG10_JAN24.csv"),format = "file"),
   tar_target(Type2_ATT_file,here("data","AE_TYPE_2_ATT_AUG10_JAN24.csv"),format = "file"),
   tar_target(Type3_ATT_file,here("data","AE_TYPE_3_ATT_AUG10_JAN24.csv"),format = "file"),
-  # MERGE FILES
+  # 2. MERGE FILES
   # Pipeline section clean AE data prior to merge them
   tar_target(data_typeone, command = clean_type1_data(Type1_ATT_file)),
   tar_target(data_typetwo, command = clean_type2_data(Type2_ATT_file)),
@@ -65,13 +64,10 @@ list(
   # Merge previous three cleansed files
   tar_target(one_two_combined, command = merge_files(data_typeone,data_typetwo)),
   tar_target(one_two_three_combined, command = merge_all_files(one_two_combined,data_typethree)),
-  # FIT ARIMA model
-  # 1 Clean data
-  tar_target(data, command = clean_data(file_csv)),
-  # 2 Plot data 
+  # 3. PLOT DATA 
   tar_target(plot, command = plot_data(data)),
-  # 3 save plot
+  # 3.1 save plot
   tar_target(savemyplot, command = save_plot(data)),
-  # 4 Data prep for ARIMA and TBATS forecasting models
-  tar_target(data_prep_model, command = fcast_data_prep(data))
+  # 4 Data prep for ARIMA and TBATS forecasting models (WIP)
+
 )

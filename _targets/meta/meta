@@ -7,9 +7,9 @@ clean_data|function|416f6f025ca3d148|||||||||||||||
 clean_type1_data|function|1cac424bb6252d9b|||||||||||||||
 clean_type2_data|function|a22406f92e40b91f|||||||||||||||
 clean_type3_data|function|476e6f98cc18d62c|||||||||||||||
-data|stem|b47724babfe3c4c9|3de3a9aaf73da12a|a1ddcc179ee40810|-2078757027||t19773.4266934861s|029e3f18865b911c|1152|rds|local|vector|||0.027||
+data|stem|b47724babfe3c4c9|3de3a9aaf73da12a|25f4a9f92b18d1dc|-2078757027||t19773.4266934861s||1152|rds|local|vector|||0.844||object file_csv not found
 data_for_model|stem||edab1d160578e0b8|69a2403b7c2a3590|913634647||t19762.6025013155s||0|rds|local|vector|||0.004||no applicable method for select applied to an object of class NULL
-data_prep_model|stem|d36ea1299fa8d732|6465c478c61d79d4|b811f3a05f89f810|-2091630174||t19773.4266939953s|44e327d1ee1978d7|43|rds|local|vector|||0.008||
+data_prep_model|stem|d36ea1299fa8d732|6465c478c61d79d4|18b1a73a130786a0|-2091630174||t19773.4266939953s||43|rds|local|vector|||0.764||no applicable method for select applied to an object of class function
 data_prep_models|stem|d36ea1299fa8d732|6465c478c61d79d4|e632e6c5f36b8768|753869643||t19757.7070969497s|44e327d1ee1978d7|43|rds|local|vector|||0.025||
 data_typeone|stem|3e9f90dcab6d6d07|d8591abf88bc4d6d|73d13e1bd42fd9bb|2129817861||t19773.4266938564s|43712adf00dd690a|1220|rds|local|vector|||0.016||
 data_typethree|stem|8630299308e523d2|3337572ef8fcd7b2|99cce040f3fdf4f6|-1231248117||t19773.4266931157s|00243e13be62d128|1245|rds|local|vector|||0.105||
@@ -28,4 +28,4 @@ savemyplot|stem|441f5b6654699c35|d07bf4314de40274|4bfb2236f70e0261|244008460||t1
 source_all|function|cee717b8566a96a4|||||||||||||||
 Type1_ATT_file|stem|ad746466d30303b8|1481ecd113999bf5|ef46db3751d8e999|1092456158|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_1_ATT_AUG10_JAN24.csv|t19772.3827956346s|0206a3f9a009fb56|2448|file|local|vector|||0||
 Type2_ATT_file|stem|00f348a01a63f589|824cf619139a3c6e|ef46db3751d8e999|-1568967827|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_2_ATT_AUG10_JAN24.csv|t19772.383892622s|099b6490c814aeeb|2939|file|local|vector|||0.001||
-Type3_ATT_file|stem|fa15f3323bdf1bf4|30771860c8dead2a|ef46db3751d8e999|1468996488|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_3_ATT_AUG10_JAN24.csv|t19772.3850478963s|9841409560d29de9|3099|file|local|vector|||0.724||
+Type3_ATT_file|stem|fa15f3323bdf1bf4|30771860c8dead2a|ef46db3751d8e999|1468996488|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_3_ATT_AUG10_JAN24.csv|t19806.4332701218s|9841409560d29de9|3099|file|local|vector|||0.724||

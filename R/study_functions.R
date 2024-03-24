@@ -125,30 +125,6 @@ save_plot <- function(data){
   
 }
 
-# TARGET 09: Function> fcast_data_prep(data) | target name in pipeline: data_prep_models
-# Function 03: Data prep and TS models
 
-fcast_data_prep <- function(data){
-  
-  # 1. Get data from previous target object clean data set is called "data" from initial target object
-  #     for this analysis
-  data_prep_model <- data %>% 
-    select(Datef,Att_TypeI) %>% 
-    mutate(Min_date = min(Datef),
-           Max_date = max(Datef)) %>% 
-    # 3. Replace if any missing values by same value previous week
-    mutate(weekday = wday(Datef, week_start=1, label =TRUE)) %>% 
-    mutate(Att_TypeI = ifelse(is.na(Att_TypeI),
-                              lag(Att_TypeI,n=7),Att_TypeI)) %>% 
-    filter(!is.na(Att_TypeI))
-  data_prep_model
-  # 5. write.csv(Forecast_models_out,here("objects","ALL_MODELS_forecast.csv"), row.names = TRUE)
-  write.csv(data_prep_model,here("objects","data_prep_model.csv"), row.names = TRUE)
-  
-}
-
-# TARGET 10:  First we build the new ARIMA function
-#  tar_target(arima_model, command = ARIMA_model(data_prep_model))
-# WIP
 
   

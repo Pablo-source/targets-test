@@ -67,9 +67,9 @@ list(
   # Merge last file Type3 with previous two ones
   tar_target(all_three_files_combined, command = merge_all_files(one_two_combined,data_typethree)),
   # 3. PLOT DATA 
-  tar_target(data_for_plot, command = format_data_plots(all_three_files_combined))
+  tar_target(data_for_plot, command = format_data_plots(all_three_files_combined)),
   # 3.1 save plot
-
+  tar_target(line_chart,command = type_1_plot(data_for_plot))
   # 4 Data prep for ARIMA and TBATS forecasting models (WIP)
 
 )

@@ -88,3 +88,20 @@ format_data_plots <- function(all_three_files_combined) {
   mutate(datef = as.Date(date, format = "%Y/%b/%d"))
   data_for_plot
 }
+
+# TARGET 07: Type_1_ATT plot
+
+type_1_plot <- function(data_for_plot){
+  
+  line_chart <- ggplot(data_for_plot) +
+    geom_line(aes(x =datef, y = Type1_ATT)) +
+    labs(title = "A&E Type I Attendances. 2011-2023 period",
+         subtitle = "Type I A&E Attendances by month",
+         x = "Period", y = "Type I Attendances" ) 
+  
+  line_chart
+  path_out <- here::here("objects","line_chart.png") 
+  
+  ggsave(path_out,line_chart)
+  
+}

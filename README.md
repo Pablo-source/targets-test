@@ -39,18 +39,19 @@ The second script "scripts_into_functions_targets_prep.R" contains new **functio
 - see script "study_functions.R" initial scripts for each analysis step turned into functions to be used in targets pipeline
 
 - See script: R/**study_functions.R**
-![study_functions](https://github.com/Pablo-source/targets-test/assets/76554081/6e0d0228-e1ba-4adc-bb22-a8f2c75fddb6)
+![2024-03-24_18-17_study_function_scripts_updated](https://github.com/Pablo-source/targets-test/assets/76554081/0b824425-8582-474a-980a-42ad87415ece)
+
 
 ## 3.1 Pipeline defined in the _targets.R file
 
 pipeline
   - 1-4 Read in data
   - 2-4 Clean data
+  - 3-4 Merge files
   - 3-4 Plot data 
-  - 4-4 Merge files
 )
 
-![03_Targets_pipeline_merge_files_done](https://github.com/Pablo-source/targets-test/assets/76554081/bc1a7d10-5663-4f5f-b933-85166186c776)
+![2024-03-24_18-14_final_pipeline_merge_plot_files](https://github.com/Pablo-source/targets-test/assets/76554081/8c953784-fd65-4f91-9299-91d9d5711f81)
 
 ## 4. Specific {targets} functions used to execute the pipeline 
 

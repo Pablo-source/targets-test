@@ -16,23 +16,6 @@ tar_option_set(
   # as discussed at https://books.ropensci.org/targets/crew.html.
   # Choose a controller that suits your needs. For example, the following
   # sets a controller with 2 workers which will run as local R processes:
-  #
-  #   controller = crew::crew_controller_local(workers = 2)
-  #
-  # Alternatively, if you want workers to run on a high-performance computing
-  # cluster, select a controller from the {crew.cluster} package. The following
-  # example is a controller for Sun Grid Engine (SGE).
-  # 
-  #   controller = crew.cluster::crew_controller_sge(
-  #     workers = 50,
-  #     # Many clusters install R as an environment module, and you can load it
-  #     # with the script_lines argument. To select a specific verison of R,
-  #     # you may need to include a version string, e.g. "module load R/4.3.0".
-  #     # Check with your system administrator if you are unsure.
-  #     script_lines = "module load R"
-  #   )
-  #
-  # Set other options as needed.
 )
 
 # tar_make_clustermq() is an older (pre-{crew}) way to do distributed computing
@@ -67,9 +50,12 @@ list(
   # Merge last file Type3 with previous two ones
   tar_target(all_three_files_combined, command = merge_all_files(one_two_combined,data_typethree)),
   # 3. PLOT DATA 
+  # 3.1 Data prep for plot
   tar_target(data_for_plot, command = format_data_plots(all_three_files_combined)),
-  # 3.1 save plot
-  tar_target(line_chart,command = type_1_plot(data_for_plot))
+  # 3.2 save plot as .png object
+  tar_target(line_chart,command = type_1_plot(data_for_plot)),
+  # 3.3 Create plot for report (to be called from Target function in report)
+  tar_target(plot_1_report,command = type_1_plot_report(data_for_plot))
   # 4 Data prep for ARIMA and TBATS forecasting models (WIP)
 
 )

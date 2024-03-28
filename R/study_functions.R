@@ -53,7 +53,7 @@ merge_files <-function(data_typeone,data_typetwo) {
   
   file_one  <- data_typeone
   file_two  <- data_typetwo
-  one_two <- right_join(file_one,file_two,
+  one_two <- left_join(file_one,file_two,
                         by = join_by(Period == Period))
   one_two_combined <-one_two
   write.csv(one_two_combined,here("objects","one_two_combined.csv"), row.names = TRUE)
@@ -66,7 +66,7 @@ merge_all_files <-function(one_two_combined,data_typethree) {
   file_two_merged <-one_two_combined
   file_three<-data_typethree
   
-  all_three_files<-right_join(file_two_merged,file_three,
+  all_three_files<-left_join(file_two_merged,file_three,
                               by = join_by(Period == Period))
   
   all_three_files_combined <-all_three_files
@@ -115,3 +115,4 @@ type_1_plot_report <- function(data_for_plot) {
          x = "Period", y = "Type I Attendances" ) 
   plot_1_report
 }
+

@@ -44,32 +44,10 @@ look for sourcing any R script from.
 source_all("R")
 ```
 
-## Data
-
-We use now the output from each target to print the results in our
-markdown report:
-
-``` r
-tar_read(data_typeone) 
-## # A tibble: 162 × 2
-##    Period Type1_ATT
-##    <chr>      <dbl>
-##  1 Aug-10   1138652
-##  2 Sep-10   1150728
-##  3 Oct-10   1163143
-##  4 Nov-10   1111295
-##  5 Dec-10   1159204
-##  6 Jan-11   1133881
-##  7 Feb-11   1053707
-##  8 Mar-11   1225222
-##  9 Apr-11   1197213
-## 10 May-11   1221687
-## # ℹ 152 more rows
-```
-
 ## Data all files combined
 
-We check the final dataframe created after merging all three files:
+We check the final data frame created in the pipeline after merging all
+three Attendances files
 
 ``` r
 tar_read(one_two_combined) 
@@ -89,12 +67,15 @@ tar_read(one_two_combined)
 ## # ℹ 152 more rows
 ```
 
-## Plot
+## Type I Accident and Emergency Attendances plot
 
-In the same way we display the plot from our Targets pipeline in this
-last section
+This section includes the plot for Type I A&E Attendances created in the
+pipeline
 
 ``` r
-tar_read(line_chart)
-## [1] "/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/objects/line_chart.png"
+tar_read(plot_1_report)
 ```
+
+![](report_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+## Type II Accident and Emergency Attendances plot

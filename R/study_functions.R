@@ -53,7 +53,7 @@ merge_files <-function(data_typeone,data_typetwo) {
   
   file_one  <- data_typeone
   file_two  <- data_typetwo
-  one_two <- right_join(file_one,file_two,
+  one_two <- left_join(file_one,file_two,
                         by = join_by(Period == Period))
   one_two_combined <-one_two
   write.csv(one_two_combined,here("objects","one_two_combined.csv"), row.names = TRUE)
@@ -66,7 +66,7 @@ merge_all_files <-function(one_two_combined,data_typethree) {
   file_two_merged <-one_two_combined
   file_three<-data_typethree
   
-  all_three_files<-right_join(file_two_merged,file_three,
+  all_three_files<-left_join(file_two_merged,file_three,
                               by = join_by(Period == Period))
   
   all_three_files_combined <-all_three_files
@@ -75,7 +75,7 @@ merge_all_files <-function(one_two_combined,data_typethree) {
   all_three_files_combined # Important always place combined file as standalone object end of function
 }
 
-# TARGET 06: Data prep for plots
+# TARGET 06: Data prep for plots (modified on 26/04/2024)
 format_data_plots <- function(all_three_files_combined) {
   
   data_for_plot <- all_three_files_combined %>% 
@@ -85,11 +85,13 @@ format_data_plots <- function(all_three_files_combined) {
            Day = 01,
            Yearf = paste0(20,Year),
            date = paste0(Yearf,"/",Month,"/",Day)) %>% 
-  mutate(datef = as.Date(date, format = "%Y/%b/%d"))
+  mutate(datef = as.Date(date, format = "%Y/%b/%d")) %>% 
+  select(datef, Type1_ATT,Type2_ATT,Type3_ATT)
   data_for_plot
 }
 
-# TARGET 07: Type_1_ATT plot
+# TARGET 07: Type_1_ATT plot saved as .png file (modified on 26/04/2024)
+# This target outputs a .png file to "object" folder
 
 type_1_plot <- function(data_for_plot){
   
@@ -98,10 +100,40 @@ type_1_plot <- function(data_for_plot){
     labs(title = "A&E Type I Attendances. 2011-2023 period",
          subtitle = "Type I A&E Attendances by month",
          x = "Period", y = "Type I Attendances" ) 
-  
-  line_chart
   path_out <- here::here("objects","line_chart.png") 
-  
   ggsave(path_out,line_chart)
+  line_chart
+}
+
+# TARGET 08: Type_1_ATT plot to be used in the Markdown_report (modified on 26/04/2024)
+type_1_plot_report <- function(data_for_plot) {
   
+  plot_1_report<-ggplot(data_for_plot) +
+    geom_line(aes(x=datef, y = Type1_ATT)) +
+    labs(title = "A&E Type I Attendances. 2011-2023 period",
+         subtitle = "Type I A&E Attendances by month",
+         x = "Period", y = "Type I Attendances" ) 
+  plot_1_report
+}
+
+# TARGET 09: Type_2_ATT plot to be used in the Markdown_report (modified on 26/04/2024)
+type_2_plot_report <- function(data_for_plot) {
+  
+  plot_2_report<-ggplot(data_for_plot) +
+    geom_line(aes(x=datef, y = Type2_ATT)) +
+    labs(title = "A&E Type II Attendances. 2011-2023 period",
+         subtitle = "Type II A&E Attendances by month",
+         x = "Period", y = "Type II Attendances" ) 
+  plot_2_report
+}
+
+# TARGET 10: Type_3_ATT plot to be used in the Markdown_report (modified on 26/04/2024)
+type_3_plot_report <- function(data_for_plot) {
+  
+  plot_3_report<-ggplot(data_for_plot) +
+    geom_line(aes(x=datef, y = Type3_ATT)) +
+    labs(title = "A&E Type III Attendances. 2011-2023 period",
+         subtitle = "Type III A&E Attendances by month",
+         x = "Period", y = "Type III Attendances" ) 
+  plot_3_report
 }

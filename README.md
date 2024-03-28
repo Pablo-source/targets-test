@@ -52,7 +52,7 @@ pipeline
   - After the pipeline run we can run **report.Rmd** Markdown report and populate it with objects created by Targets pipeline. 
 )
 
-![2024-03-24_18-14_final_pipeline_merge_plot_files](https://github.com/Pablo-source/targets-test/assets/76554081/66634391-c813-4ce6-870e-142679b5a3c9)
+![2024-03-28_09-27_all_three_new_targets_plots](https://github.com/Pablo-source/targets-test/assets/76554081/337c2411-05c5-4bfd-8b04-23d71cfb649c)
 
 
 ## 4. Specific {targets} functions used to execute the pipeline 

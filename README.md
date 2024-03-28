@@ -117,7 +117,8 @@ This is the output of the complated pipeline run, with dataframes saved and requ
 
 After using **tar_make()** function we get the complete report of which sections of the pipeline have ran
 
-![2024-03-24_17-55_pipeline_including_chart_done](https://github.com/Pablo-source/targets-test/assets/76554081/86d5a95d-8df7-4d0c-8914-fdc53af5e861)
+![2024-03-28_09-35_tar_manifest_all_charts_created](https://github.com/Pablo-source/targets-test/assets/76554081/04525e6e-5d3c-4be2-83dc-ea25ccd7cdd5)
+
 
 
 ## 9.Adding univariate TS model forecast

@@ -37,28 +37,20 @@ This adhoc. source_all() function can be used in the future to source any new R 
 source_all("R")
 ```
 
-## Data
-
-We use now the output from each target to print the results in our markdown report:
-
-```{r}
-tar_read(data_typeone) 
-```
-
 ## Data all files combined
 
-We check the final dataframe created after merging all three files:
+We check the final data frame created in the pipeline after merging all three Attendances files
 
 ```{r}
 tar_read(one_two_combined) 
 ```
 
-## Plot 
+## Type I Accident and Emergency Attendances plot 
 
-In the same way we display the plot from our Targets pipeline in this last section
+This section includes the plot for Type I A&E Attendances created in the pipeline
 
 ```{r}
-tar_read(line_chart)
+tar_read(plot_1_report)
 ```
 
-
+## Type II Accident and Emergency Attendances plot 

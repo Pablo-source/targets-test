@@ -107,7 +107,7 @@ First we will merge all incoming .csv files, then we combine them into a single 
 
 This is the output usuing tar_visnetwork() function to check pipeline dependency graph 
 
-![2024-03-24_17-52_Create_save_line_chart](https://github.com/Pablo-source/targets-test/assets/76554081/e2e82a4e-b639-4019-9251-267ef8be3f12)
+![2024-03-28_tar_visnetwork_plots_output](https://github.com/Pablo-source/targets-test/assets/76554081/6660f60e-0583-423f-ad86-9bda2199c932)
 
 As part of the data preparation stage for future modelling pipeline
 

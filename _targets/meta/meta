@@ -1,5 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-all_three_files_combined|stem|0d9c5614a9964626|2c7c705a731cd814|5be27869cccb2394|421593337||t19810.342555323s|c779c7c8a96c3b97|2359|rds|local|vector|||0.003||
+all_three_files_combined|stem|0d9c5614a9964626|2c7c705a731cd814|bfce3da057c13cd4|421593337||t19810.3825053833s|c779c7c8a96c3b97|2359|rds|local|vector|||0.003||
 arima_model|stem||edab1d160578e0b8|a2b4bb8291461fb7|1283359888||t19762.5899360558s||0|rds|local|vector|||0.003||no applicable method for select applied to an object of class NULL
 ARIMA_model|function|336355df19a07118|||||||||||||||
 ARIMA_model_target|stem||edab1d160578e0b8|79df2d63dff4db33|-1266625406||t19762.5881855981s||0|rds|local|vector|||0.004||no applicable method for select applied to an object of class NULL
@@ -21,18 +21,22 @@ file|stem|3726be31039e5214|4fe0297da2f83797|ef46db3751d8e999|-1629806240|Type_I_
 file_csv|stem|3726be31039e5214|42f18851d0d77cc5|ef46db3751d8e999|599467729|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/Type_I_AE_Attendances_AUG2010_NOV2023.csv|t19773.3338746115s|283871a157245cd6|2435|file|local|vector|||0.75||
 format_data_plots|function|72147065dfb4b60d|||||||||||||||
 line_chart|stem|79bfc9e30ac7f147|6eee63a44a835485|e8ed8065e1907037|1085861765||t19810.3425591655s|a73aa2ab7cd748d9|57603|rds|local|vector|||0.281||
-merge_all_files|function|cc31b2c01c50977a|||||||||||||||
-merge_files|function|cef0248529ae3fdb|||||||||||||||
-one_two_combined|stem|8618352479b645ea|76090e4922bd361e|5e7aea67d1229fb0|-41340869||t19810.3425552304s|9ff96f3d62ae22ea|1735|rds|local|vector|||0.005||
+merge_all_files|function|bec1a0b1910b4706|||||||||||||||
+merge_files|function|2d555c1338ec91be|||||||||||||||
+one_two_combined|stem|8618352479b645ea|76090e4922bd361e|976f97b607d25302|-41340869||t19810.3825052907s|9ff96f3d62ae22ea|1735|rds|local|vector|||0.015||
 one_two_three_combined|stem|0d9c5614a9964626|2c7c705a731cd814|c9d99c7e4364980e|2005515953||t19773.4411206973s|c779c7c8a96c3b97|2359|rds|local|vector|||0.006||
 plot|stem|b8fb6009483c4aed|e2b06227c2414cfa|0d1b6723d8b6d379|-476444806||t19773.4266942731s|07dd934003906c0b|58449|rds|local|vector|||0.007||
 plot_1_report|stem|b6f4743e79dc0534|5efe488c7908ebaa|ceb8962bfbdf765b|-829941264||t19810.3425556933s|5200fd2bdf82afa9|57455|rds|local|vector|||0.006||
+plot_2_report|stem|92809d9c6b1a31dd|46dfa2c3877f5867|78d6102438fe44f2|-1623363262||t19810.382505661s|38228f0413f29dd2|58836|rds|local|vector|||0.007||
+plot_3_report|stem|0d0b467be9a3c08a|f7a48cbb91c68c21|85be7c26eb335c80|-1733886012||t19810.3825058925s|4709da9d93705231|58840|rds|local|vector|||0.003||
 plot_data|function|c26afab764201b54|||||||||||||||
 save_plot|function|c938474b7ef41822|||||||||||||||
 savemyplot|stem|441f5b6654699c35|d07bf4314de40274|4bfb2236f70e0261|244008460||t19773.4266977916s|6aac70ce59868a33|131|rds|local|vector|||0.301||
 source_all|function|cee717b8566a96a4|||||||||||||||
 type_1_plot|function|e8e14723e7ba1d0e|||||||||||||||
 type_1_plot_report|function|817311d0370a86dd|||||||||||||||
+type_2_plot_report|function|9f6ac6aabe095b5d|||||||||||||||
+type_3_plot_report|function|2b160426cd7034f1|||||||||||||||
 Type1_ATT_file|stem|ad746466d30303b8|1481ecd113999bf5|ef46db3751d8e999|1092456158|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_1_ATT_AUG10_JAN24.csv|t19808.3996631731s|0206a3f9a009fb56|2448|file|local|vector|||0||
 Type2_ATT_file|stem|00f348a01a63f589|824cf619139a3c6e|ef46db3751d8e999|-1568967827|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_2_ATT_AUG10_JAN24.csv|t19808.3996631731s|099b6490c814aeeb|2939|file|local|vector|||0.001||
 Type3_ATT_file|stem|fa15f3323bdf1bf4|30771860c8dead2a|ef46db3751d8e999|1468996488|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_3_ATT_AUG10_JAN24.csv|t19808.3996631731s|9841409560d29de9|3099|file|local|vector|||0.724||

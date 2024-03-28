@@ -50,7 +50,13 @@ tar_read(one_two_combined)
 This section includes the plot for Type I A&E Attendances created in the pipeline
 
 ```{r}
-tar_read(plot_1_report)
+tar_read(plot_2_report)
 ```
 
-## Type II Accident and Emergency Attendances plot 
+## Type III Accident and Emergency Attendances 
+
+Total number of Type III Attendances from 2011 to December 2023
+
+```{r}
+tar_read(plot_3_report)
+```

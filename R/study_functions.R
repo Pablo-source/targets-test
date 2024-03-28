@@ -116,3 +116,24 @@ type_1_plot_report <- function(data_for_plot) {
   plot_1_report
 }
 
+# TARGET 09: Type_2_ATT plot to be used in the Markdown_report (modified on 26/04/2024)
+type_2_plot_report <- function(data_for_plot) {
+  
+  plot_2_report<-ggplot(data_for_plot) +
+    geom_line(aes(x=datef, y = Type2_ATT)) +
+    labs(title = "A&E Type II Attendances. 2011-2023 period",
+         subtitle = "Type II A&E Attendances by month",
+         x = "Period", y = "Type II Attendances" ) 
+  plot_2_report
+}
+
+# TARGET 10: Type_3_ATT plot to be used in the Markdown_report (modified on 26/04/2024)
+type_3_plot_report <- function(data_for_plot) {
+  
+  plot_3_report<-ggplot(data_for_plot) +
+    geom_line(aes(x=datef, y = Type3_ATT)) +
+    labs(title = "A&E Type III Attendances. 2011-2023 period",
+         subtitle = "Type III A&E Attendances by month",
+         x = "Period", y = "Type III Attendances" ) 
+  plot_3_report
+}

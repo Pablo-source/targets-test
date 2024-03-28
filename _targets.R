@@ -55,7 +55,10 @@ list(
   # 3.2 save plot as .png object
   tar_target(line_chart,command = type_1_plot(data_for_plot)),
   # 3.3 Create plot for report (to be called from Target function in report)
-  tar_target(plot_1_report,command = type_1_plot_report(data_for_plot))
+  tar_target(plot_1_report,command = type_1_plot_report(data_for_plot)),
+  tar_target(plot_2_report,command = type_2_plot_report(data_for_plot)),
+  tar_target(plot_3_report,command = type_3_plot_report(data_for_plot))
+  
   # 4 Data prep for ARIMA and TBATS forecasting models (WIP)
 
 )

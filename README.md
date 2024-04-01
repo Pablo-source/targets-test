@@ -120,13 +120,20 @@ After using **tar_make()** function we get the complete report of which sections
 ![2024-03-28_09-35_tar_manifest_all_charts_created](https://github.com/Pablo-source/targets-test/assets/76554081/04525e6e-5d3c-4be2-83dc-ea25ccd7cdd5)
 
 
-
 ## 9.Adding univariate TS model forecast
 
 Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run 'fs:dir_tree("targets-test")' to check the list of objects created by Targets after running the pipeline. The Markdown report has been populated by the pipeline objects.
 
-![dir_tree_targets_test_ARIMA_model](https://github.com/Pablo-source/targets-test/assets/76554081/afe91093-42d9-4368-bb59-60150ba645c3)
+In the coming week, I will be using **Dynamic branching** alongside **Modeltime** packages to introduce a couple of predictive models (ARIMA,Prophet) in the eixisting Pipeline. This is aimed to predict next 5 months of A&E Attendances.
 
-First I will start preparing the data to work with TS objects to be used with {forecast} package to apply ARIMA and TBATS models
-Created new targets object in the pipeline based on a function called **fcast_data_prep()**
-![image](https://github.com/Pablo-source/targets-test/assets/76554081/be8ad144-c8b8-49ef-94ae-6fde241cae9a)
+9.1 Dynanic branching
+
+It is a way to define new targets while the pipeline is running.  Opposed to declaring several targets up front. It is when you want to iterate over what is in the data, and you want a target that iterates by region.
+-Dynamic branching using {targets}
+<https://books.ropensci.org/targets/dynamic.html>
+
+9.2 modeltime
+
+I will include Modeltime Package to combine Prophet and ARIMA models in the previous Targets Pipeline
+-Modeltime package
+<https://business-science.github.io/modeltime/>

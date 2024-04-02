@@ -1,7 +1,7 @@
 report
 ================
 PLR
-2024-01-08
+2024-04-02
 
 ## Setup
 
@@ -78,4 +78,22 @@ tar_read(plot_1_report)
 
 ![](report_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
-## Type II Accident and Emergency Attendances plot
+## Type II Accident and Emergency Attendances
+
+Total number of Type II A&E Attendances from 2011 to December 2023
+
+``` r
+tar_read(plot_2_report)
+```
+
+![](report_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+## Type III Accident and Emergency Attendances
+
+Total number of Type III A&E Attendances from 2011 to December 2023
+
+``` r
+tar_read(plot_3_report)
+```
+
+![](report_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->

@@ -6,7 +6,7 @@
 
 # 1.1 Load targets library
 library(targets)
-
+# Source script in R folder to load required functions to build pipeline
 source("R/study_functions.R")
 # 1.2 First check for errors in the pipeline using tar_manifest() function
 tar_manifest(fields = command)

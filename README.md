@@ -132,8 +132,27 @@ It is a way to define new targets while the pipeline is running.  Opposed to dec
 -Dynamic branching using {targets}
 <https://books.ropensci.org/targets/dynamic.html>
 
-9.2 modeltime
+I will be using Dynamic branching to iterate over these four Economic Indicators downloaded from the FRED, Federal Reserve Economic Data.FRED Economic Data St LOUIS FRED:
 
+Categories > Production & Business Activity > Manufacturing
+<https://fred.stlouisfed.org/>
+
+Monthly time series indicators downloaded from FRED Economic Data. St Louis: 
+
+- Manufacturers' Value of Shipments: Total Manufacturing (AMTMVS). 2000-2024. Frequency: Monthly.
+  U.S. Census Bureau, Manufacturers' Value of Shipments: Total Manufacturing [AMTMVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/AMTMVS, April 2, 2024.Frequency: Monthly
+  URL: <https://fred.stlouisfed.org/series/AMTMVS>
+- Manufacturers' Value of Shipments: Computers and Electronic Products (A34SVS). 2000-2024.
+  U.S. Census Bureau, Manufacturers' Value of Shipments: Computers and Electronic Products [A34SVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/A34SVS, April 3, 2024.
+  URL: <https://fred.stlouisfed.org/series/A34SVS>
+- Manufacturers' Value of Shipments: Durable Goods (AMDMVS). 2000-2024. Frequency: Monthly
+  U.S. Census Bureau, Manufacturers' Value of Shipments: Durable Goods [AMDMVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/AMDMVS, April 2, 2024.
+  URL: <https://fred.stlouisfed.org/series/AMDMVS>
+- Manufacturers' Value of Shipments: Nondefense Capital Goods Excluding Aircraft (ANXAVS). 2000-2024. Frequency: Monthly
+  U.S. Census Bureau, Manufacturers' Value of Shipments: Nondefense Capital Goods Excluding Aircraft [ANXAVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/ANXAVS, April 2, 2024.
+  URL: <https://fred.stlouisfed.org/series/ANXAVS>
+  
+9.2 modeltime
 I will include Modeltime Package to combine Prophet and ARIMA models in the previous Targets Pipeline
 -Modeltime package
 <https://business-science.github.io/modeltime/>

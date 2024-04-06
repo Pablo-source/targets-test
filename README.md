@@ -132,7 +132,7 @@ It is a way to define new targets while the pipeline is running.  Opposed to dec
 -Dynamic branching using {targets}
 <https://books.ropensci.org/targets/dynamic.html>
 
-I will be using Dynamic branching to iterate over these four Economic Indicators downloaded from the FRED, Federal Reserve Economic Data.FRED Economic Data St LOUIS FRED:
+I will be using Dynamic branching to iterate over these four Economic Indicators downloaded from the FRED, Federal Reserve Economic Data:
 
 Categories > Production & Business Activity > Manufacturing
 <https://fred.stlouisfed.org/>

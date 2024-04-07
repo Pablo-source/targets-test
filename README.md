@@ -143,7 +143,7 @@ Monthly time series indicators downloaded from FRED Economic Data. St Louis:
   U.S. Census Bureau, Manufacturers' Value of Shipments: Total Manufacturing [AMTMVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/AMTMVS, April 2, 2024.Frequency: Monthly. Units:  Millions of Dollars, Seasonally Adjusted.
   URL: <https://fred.stlouisfed.org/series/AMTMVS>
 - Manufacturers' Value of Shipments: Computers and Electronic Products (A34SVS). 2000-2024.
-  U.S. Census Bureau, Manufacturers' Value of Shipments: Computers and Electronic Products [A34SVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/A34SVS, April 3, 2024.
+  U.S. Census Bureau, Manufacturers' Value of Shipments: Computers and Electronic Products [A34SVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/A34SVS, April 3, 2024. Frequency: Monthly. Units:  Millions of Dollars, Seasonally Adjusted.
   URL: <https://fred.stlouisfed.org/series/A34SVS>
 - Manufacturers' Value of Shipments: Durable Goods (AMDMVS). 2000-2024. Frequency: Monthly
   U.S. Census Bureau, Manufacturers' Value of Shipments: Durable Goods [AMDMVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/AMDMVS, April 2, 2024.

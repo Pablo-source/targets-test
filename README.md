@@ -122,7 +122,7 @@ After using **tar_make()** function we get the complete report of which sections
 
 ## 9.Adding univariate TS model forecast
 
-Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run 'fs:dir_tree("targets-test")' to check the list of objects created by Targets after running the pipeline. The Markdown report has been populated by the pipeline objects.
+Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run **fs:dir_tree("targets-test")** to check whole set of objects created by Targets. The Markdown report has been populated by the three plots created in the pipeline.
 
 In the coming week, I will be using **Dynamic branching** alongside **Modeltime** packages to introduce a couple of predictive models (ARIMA,Prophet) in the eixisting Pipeline. This is aimed to predict the next 5 months of Manufacturer's Value of Shipment for the following set of Shipment categories described below: 
 

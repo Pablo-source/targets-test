@@ -149,7 +149,7 @@ Monthly time series indicators downloaded from FRED Economic Data. St Louis:
   U.S. Census Bureau, Manufacturers' Value of Shipments: Durable Goods [AMDMVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/AMDMVS, April 2, 2024.Frequency: Monthly. Units:  Millions of Dollars, Seasonally Adjusted.
   URL: <https://fred.stlouisfed.org/series/AMDMVS>
 - Manufacturers' Value of Shipments: Nondefense Capital Goods Excluding Aircraft (ANXAVS). 2000-2024. Frequency: Monthly
-  U.S. Census Bureau, Manufacturers' Value of Shipments: Nondefense Capital Goods Excluding Aircraft [ANXAVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/ANXAVS, April 2, 2024.
+  U.S. Census Bureau, Manufacturers' Value of Shipments: Nondefense Capital Goods Excluding Aircraft [ANXAVS], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/ANXAVS, April 2, 2024.Frequency: Monthly. Units:  Millions of Dollars, Seasonally Adjusted.
   URL: <https://fred.stlouisfed.org/series/ANXAVS>
   
 9.2 modeltime

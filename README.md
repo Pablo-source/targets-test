@@ -151,6 +151,17 @@ Monthly time series indicators downloaded from FRED Economic Data. St Louis:
 - Manufacturers' Value of Shipments: Nondefense Capital Goods Excluding Aircraft (ANXAVS). 2000-2024. Frequency: Monthly
   U.S. Census Bureau, Manufacturers' Value of Shipments: Nondefense Capital Goods Excluding Aircraft [ANXAVS], retrieved from FRED, Federal Reserve Bank of St. Louis; April 2, 2024.Frequency: Monthly. Units:  Millions of Dollars, Seasonally Adjusted.
   URL: <https://fred.stlouisfed.org/series/ANXAVS>
+
+This is an example of dynamic branching using **tarchetypes** package based on Metric variable, creating 2 branches for the two metrics included in this workflow:
+**tarchetypes** package GitHub repo:<https://github.com/ropensci/tarchetypes/tree/main> 
+
+![VISNETWORK_tarchetypes_by_metric](https://github.com/Pablo-source/targets-test/assets/76554081/ca76b3d8-d8b6-4ae4-9d76-d866b82e233b)
+
+Visnetwork from the above workfow including branching
+
+![VISNETWORK_graph_branch_by_metric](https://github.com/Pablo-source/targets-test/assets/76554081/9b9732b7-dfdb-4df0-add8-76edab4fc21a)
+
+- This will allow me using Modeltime, then apply every model to each of the different branches created by Targets, so the model will ran by each metric in the pipeline
   
 9.2 modeltime
 I will include Modeltime Package to combine Prophet and ARIMA models in the previous Targets Pipeline

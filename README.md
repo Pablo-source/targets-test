@@ -157,6 +157,10 @@ This is an example of dynamic branching using **tarchetypes** package based on M
 
 ![VISNETWORK_tarchetypes_by_metric](https://github.com/Pablo-source/targets-test/assets/76554081/ca76b3d8-d8b6-4ae4-9d76-d866b82e233b)
 
+![TARGETS_TEST_ISSUE_17_DYNAMIC_BRANCHING_ARIMA_01](https://github.com/Pablo-source/targets-test/assets/76554081/d24611bf-6751-4c99-b323-dca1df58a4ad)
+
+![TARGETS_TEST_ISSUE_17_DYNAMIC_BRANCHING_Tarchetypes](https://github.com/Pablo-source/targets-test/assets/76554081/53465522-218d-40bb-8a53-e1c8715e91e4)
+
 Visnetwork from the above workfow including branching
 
 ![VISNETWORK_graph_branch_by_metric](https://github.com/Pablo-source/targets-test/assets/76554081/9b9732b7-dfdb-4df0-add8-76edab4fc21a)

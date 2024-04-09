@@ -126,7 +126,7 @@ Once the pipeline has run, before we implement a new feature (including a simple
 
 In the coming week, I will be using **Dynamic branching** alongside **Modeltime** packages to introduce a couple of predictive models (ARIMA,Prophet) in the eixisting Pipeline. This is aimed to predict the next 5 months of Manufacturer's Value of Shipment for the following set of Shipment categories described below: 
 
-9.1 Dynanic branching
+### 9.1 Dynanic branching
 
 It is a way to define new targets while the pipeline is running.  Opposed to declaring several targets up front. It is when you want to iterate over what is in the data, and you want a target that iterates by region.
 -Dynamic branching using {targets}

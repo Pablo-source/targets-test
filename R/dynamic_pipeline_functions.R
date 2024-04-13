@@ -31,7 +31,7 @@ clean_durable_goods_data <- function(Durable_goods_input){
 }
 
 # TARGET 03: Union both files
-# Append (union) "computer_data" and "Durable_goods" files
+# Append (union) "computer_data" and "Durable_goods" files 
 
 union_computer_durable <- function (computer_data, durable_goods){
   

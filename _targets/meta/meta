@@ -4,10 +4,15 @@ arima_model|stem||edab1d160578e0b8|a2b4bb8291461fb7|1283359888||t19762.589936055
 ARIMA_model|function|336355df19a07118|||||||||||||||
 ARIMA_model_target|stem||edab1d160578e0b8|79df2d63dff4db33|-1266625406||t19762.5881855981s||0|rds|local|vector|||0.004||no applicable method for select applied to an object of class NULL
 ARIMA_prep|stem||edab1d160578e0b8|a2b4bb8291461fb7|1090375147||t19773.4392295752s||0|rds|local|vector|||0.003||no applicable method for select applied to an object of class NULL
+clean_computer_data|function|7ec90f143001e551|||||||||||||||
 clean_data|function|416f6f025ca3d148|||||||||||||||
+clean_durable_goods_data|function|41e1b3ecd9d5273e|||||||||||||||
 clean_type1_data|function|1cac424bb6252d9b|||||||||||||||
 clean_type2_data|function|a22406f92e40b91f|||||||||||||||
 clean_type3_data|function|476e6f98cc18d62c|||||||||||||||
+computer_data|stem|255494f38eaf29ce|7db798520c8a77b1|0ce6b5d20045fb4c|-475695089||t19826.4158338669s|2bb4374823c93d52|1720|rds|local|vector|||0.233||
+Computer_data_input|stem|9339be382b7d4124|857cc9291ca3103b|ef46db3751d8e999|1677802252|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/A34SVS_Shipments_value_Computer_products.csv|t19822.3266204663s|9313a2ef9725a3a2|5082|file|local|vector|||0.739||
+computer_durable|stem|a6e9247d4d76b093|1df5a26a6f3a7bcf|fc49d1350c709da4|400386504||t19826.4158341447s|a0475decbe3861aa|2782|rds|local|vector|||0.003||
 data|stem|b47724babfe3c4c9|3de3a9aaf73da12a|25f4a9f92b18d1dc|-2078757027||t19773.4266934861s||1152|rds|local|vector|||0.844||object file_csv not found
 data_for_model|stem||edab1d160578e0b8|69a2403b7c2a3590|913634647||t19762.6025013155s||0|rds|local|vector|||0.004||no applicable method for select applied to an object of class NULL
 data_for_plot|stem|5ad0c441b4390ec6|7c0c08ed1f5290b2|d01ea3ee4a09e8da|-1786949841||t19815.3056007154s|38698b2dd0294d4b|2281|rds|local|vector|||0.008||
@@ -16,10 +21,19 @@ data_prep_models|stem|d36ea1299fa8d732|6465c478c61d79d4|e632e6c5f36b8768|7538696
 data_typeone|stem|3e9f90dcab6d6d07|d8591abf88bc4d6d|73d13e1bd42fd9bb|2129817861||t19815.3056003914s|43712adf00dd690a|1220|rds|local|vector|||0.008||
 data_typethree|stem|8630299308e523d2|3337572ef8fcd7b2|99cce040f3fdf4f6|-1231248117||t19815.3056001136s|00243e13be62d128|1245|rds|local|vector|||0.166||
 data_typetwo|stem|6903a1185d048ff1|99014362e578cbb3|5efd8bf6c933db84|708349144||t19815.3056002525s|caaf1695eda09c20|1142|rds|local|vector|||0.008||
+durable_goods|stem|e3fefeceef53807d|148481f3ac13fddd|4ba56a9cd35c0749|878330483||t19826.4158340521s|e04f7a2999f9f3b3|1904|rds|local|vector|||0.013||
+Durable_goods_input|stem|630ff25db1d51929|d48160862aa50471|ef46db3751d8e999|715786184|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AMDMVS_Shipments_value_Durable_goods.csv|t19822.3266204663s|bc0448c367ea8ecc|5372|file|local|vector|||0||
 fcast_data_prep|function|b20103c28a270304|||||||||||||||
 file|stem|3726be31039e5214|4fe0297da2f83797|ef46db3751d8e999|-1629806240|Type_I_AE_Attendances_AUG2010_NOV2023.csv|t19716.9780787037s|283871a157245cd6|2435|file|local|vector|||0.401||
 file_csv|stem|3726be31039e5214|42f18851d0d77cc5|ef46db3751d8e999|599467729|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/Type_I_AE_Attendances_AUG2010_NOV2023.csv|t19773.3338746115s|283871a157245cd6|2435|file|local|vector|||0.75||
 format_data_plots|function|72147065dfb4b60d|||||||||||||||
+grouped_by_mertic|pattern|26755fbebaa94c42|843959bb16bdc262||-1132765653||||3703|rds|local|vector||grouped_by_mertic_e0ff7925*grouped_by_mertic_e1b30670|0||
+grouped_by_mertic_e0ff7925|branch|003edc2e772ad36b|843959bb16bdc262|ef46db3751d8e999|852316232||t19826.4158343299s|fec8ad55d74b136b|1755|rds|local|vector|grouped_by_mertic||0||
+grouped_by_mertic_e1b30670|branch|a9b39f61fcc6e811|843959bb16bdc262|ef46db3751d8e999|-499405156||t19826.4158343762s|e9eb4a6b49f0f78b|1948|rds|local|vector|grouped_by_mertic||0||
+grouped_by_metric|pattern|db515cacbea00310|843959bb16bdc262||587833811||||3703|rds|local|vector||grouped_by_metric_e0ff7925*grouped_by_metric_e1b30670|0||
+grouped_by_metric_e0ff7925|branch|003edc2e772ad36b|843959bb16bdc262|ef46db3751d8e999|-1497642990||t19826.427550633s|fec8ad55d74b136b|1755|rds|local|vector|grouped_by_metric||0||
+grouped_by_metric_e1b30670|branch|a9b39f61fcc6e811|843959bb16bdc262|ef46db3751d8e999|599990060||t19826.427550633s|e9eb4a6b49f0f78b|1948|rds|local|vector|grouped_by_metric||0||
+grouped_metric|stem|c18bc7227f7227fe|ad876b8654603391|dd5e209c738b379d|1813026996||t19826.4158342373s|c040db02edbf5a63|2825|rds|local|group||grouped_metric_7a3ece26*grouped_metric_736b2d82|0.006||
 line_chart|stem|1810b14d09b2a6a1|6eee63a44a835485|e8ed8065e1907037|1085861765||t19815.3056053914s|9e19448ee326d36e|58979|rds|local|vector|||0.277||
 merge_all_files|function|bec1a0b1910b4706|||||||||||||||
 merge_files|function|2d555c1338ec91be|||||||||||||||
@@ -33,6 +47,7 @@ plot_data|function|c26afab764201b54|||||||||||||||
 save_plot|function|c938474b7ef41822|||||||||||||||
 savemyplot|stem|441f5b6654699c35|d07bf4314de40274|4bfb2236f70e0261|244008460||t19773.4266977916s|6aac70ce59868a33|131|rds|local|vector|||0.301||
 source_all|function|cee717b8566a96a4|||||||||||||||
+Total_manuf_input|stem|059043cd4268039b|b58561c9bb8d4eb5|ef46db3751d8e999|1046989534|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AMTMVS_Shipments_Total_Manufacturing.csv|t19822.3266204663s|bc0448c367ea8ecc|5372|file|local|vector|||0||
 type_1_plot|function|e8e14723e7ba1d0e|||||||||||||||
 type_1_plot_report|function|817311d0370a86dd|||||||||||||||
 type_2_plot_report|function|9f6ac6aabe095b5d|||||||||||||||
@@ -40,3 +55,4 @@ type_3_plot_report|function|2b160426cd7034f1|||||||||||||||
 Type1_ATT_file|stem|ad746466d30303b8|1481ecd113999bf5|ef46db3751d8e999|1092456158|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_1_ATT_AUG10_JAN24.csv|t19812.7774468252s|0206a3f9a009fb56|2448|file|local|vector|||0||
 Type2_ATT_file|stem|00f348a01a63f589|824cf619139a3c6e|ef46db3751d8e999|-1568967827|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_2_ATT_AUG10_JAN24.csv|t19812.7774468252s|099b6490c814aeeb|2939|file|local|vector|||0.001||
 Type3_ATT_file|stem|fa15f3323bdf1bf4|30771860c8dead2a|ef46db3751d8e999|1468996488|/home/pablo/Documents/Pablo_zorin/Github_Pablo_source_zorin/targets-test/data/AE_TYPE_3_ATT_AUG10_JAN24.csv|t19812.7774468252s|9841409560d29de9|3099|file|local|vector|||0.724||
+union_computer_durable|function|66aa3c7eb774751a|||||||||||||||

@@ -12,6 +12,7 @@ source("R/study_functions.R")
 tar_manifest(fields = command)
 # 1.3 Then check pipeline dependency graph using tar_visnetwork() function
 tar_visnetwork()
+tar_visnetwork(label="branches")
 # 1.4 Finaly we run the pipeline we just built earlier using tar_make() function
 # This function runs the correct targets in the correct order and saves the results to files
 tar_make()

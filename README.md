@@ -8,7 +8,7 @@ Project to practise creating analytical pipelines to run models using {targets} 
 
 - Each pipeline has its **unique "_targets.R" file**. And each pipeline will contain specific set of *tar_target()* and *tar_group_by()* functions used to configure the pipeline structure for each project.
 
-- As this *_targets.R* file must retain its original name, I will save each *_targets.R" file for each pipeline in a separate folder in this GitHub project.
+- As this *_targets.R* file must retain its original name, I will save each *_targets.R* file for each pipeline in a separate folder in this GitHub project.
 
 - **Each pipeline folder** will have to be run on a dedicated and **individual R project** to match the targets list from **_targets.R** file for that pipeline with its related set of **adhoc R functions** stored in the \R folder
 

@@ -16,6 +16,9 @@ Project to practise creating analytical pipelines to run models using {targets} 
 
 - So when downloading each pipeline folder, it will contain the "_targets.R" files and related functions saved in the \R folder. All required input files will be sourced from the \data folder 
 
+Pipeline_01_dynamic_branching_files:
+  - _targets.R                (Pipeline setup file)
+  - using_dynamic_pipeline.R  (Specific functions to populate this pipeline)
 
 ## Quick start using Targets
 After installing the package, we load targets “library(targets)”. Then our first step is to run “**use_tergets()**” function. This **creates** a new file called **_tragets.R** that is used to **configure** and **setup** the **pipeline**.

@@ -4,6 +4,19 @@ Project to practise creating analytical pipelines to run models using {targets} 
 - The {targets} R package user manual:  <https://books.ropensci.org/targets/>
 - Targets walkthrough: <https://books.ropensci.org/targets/walkthrough.html>
 
+**Important**: 
+
+- Each pipeline has its **unique "_targets.R" file**. And each pipeline will contain specific set of *tar_target()* and *tar_group_by()* functions used to configure the pipeline structure for each project.
+
+- As this *_targets.R* file must retain its original name, I will save each *_targets.R" file for each pipeline in a separate folder in this GitHub project.
+
+- **Each pipeline folder** will have to be run on a dedicated and **individual R project** to match the targets list from **_targets.R** file for that pipeline with its related set of **adhoc R functions** stored in the \R folder
+
+- This will ensure each pipeline works for the purpose stated in the pipeline folder created at the top of this project.
+
+- So when downloading each pipeline folder, it will contain the "_targets.R" files and related functions saved in the \R folder. All required input files will be sourced from the \data folder 
+
+
 ## Quick start using Targets
 After installing the package, we load targets “library(targets)”. Then our first step is to run “**use_tergets()**” function. This **creates** a new file called **_tragets.R** that is used to **configure** and **setup** the **pipeline**.
 

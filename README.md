@@ -120,7 +120,7 @@ After using **tar_make()** function we get the complete report of which sections
 ![2024-03-28_09-35_tar_manifest_all_charts_created](https://github.com/Pablo-source/targets-test/assets/76554081/04525e6e-5d3c-4be2-83dc-ea25ccd7cdd5)
 
 
-## 9.Adding univariate TS model forecast
+## 9.Dynamic branching and Time Series models forecast
 
 Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run **fs:dir_tree("targets-test")** to check whole set of objects created by Targets. The Markdown report has been populated by the three plots created in the pipeline.
 

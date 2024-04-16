@@ -1,0 +1,1 @@
+This pipeline is used to setup dynamic branching based on a metric included in the set of input files. It is the first pipeline used to setup a predictive moodel using ARIMA and PROPHET time series models. The AIM Is to automate the model creation where Targets takes care of the different branches. To make easy to mantain the whole model pipeline

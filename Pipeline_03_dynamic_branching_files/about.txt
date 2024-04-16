@@ -1,1 +1,23 @@
 This pipeline is used to setup dynamic branching based on a metric included in the set of input files. It is the first pipeline used to setup a predictive moodel using ARIMA and PROPHET time series models. The AIM Is to automate the model creation where Targets takes care of the different branches. To make easy to mantain the whole model pipeline
+
+Set of files used in this Dynamic branching pipeline: 
+
+Input files:
+
+AMDMVS_Shipments_value_Durable_goods.csv
+A34SVS_Shipments_value_Computer_products.csv
+AMTMVS_Shipments_Total_Manufacturing.csv
+ANXAVS_Shipments_value_Nondefense_Capital_Goods.csv
+
+1. Targets pipeline setup file
+_targets.R
+
+2. Set of Functions designed for this Dynamic branching pipeline
+dynamic_pipeline_functions.R
+
+3. Specific Targets functions to use this Pipeline I've just created
+using_dynamic_pipeline.R
+
+4. VISNETWORK pipeline structure diagram
+VISNETWORK_dynamic_branching_arima.png
+

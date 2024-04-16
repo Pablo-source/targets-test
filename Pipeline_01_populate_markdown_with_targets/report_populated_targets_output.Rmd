@@ -1,0 +1,96 @@
+---
+title: "Populate Markdown report with Targets pipeline objects"
+author: "PLR"
+date: "`r Sys.Date()`"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, cache = FALSE)
+```
+
+## Setup
+
+Load required packages first
+
+```{r load packages}
+# "tibble","tidyverse","here"
+library(tibble)
+library(tidyverse)
+library(here)
+library(targets)
+```
+
+## AIM
+
+This Markdown report is populated with the pipeline objects created in the pipeline file "_targets.R" and set of functions defined by the R script " populate_markdown_with_targets_functions.R". It shows an small example on how a Targets pipeline can be used to build a Markdown report. 
+
+As the "_targets.R" file is unique to each pipeline, I have saved the "_targets.R" file to setup and run the pipeline and also to replicate this specific report in the "Pipeline_01_populate_markdown_with_targets" folder. 
+
+All remaining files used to build and run this report can also be found in that folder  The input data used to create the tables and charts in this report is also saved in the "data" folder at the project directory folder level. 
+
+## Load Targets functions
+
+We source required Target functions to create the output elements for this report. This functions are saved in the R sub-folder where Targets sources all scripts required to run the functions that populate the pipeline:
+
+```{r}
+source(here("R","populate_markdown_with_targets_functions.R"))
+```
+
+## Run pipeline using targets ad hoc function
+
+The next step is to run **using_populate_markdown_with_targets_pipeline.R** from at the project folder directory level
+we will run the set of commands required to build and inspect the pipeline:  
+
+- library(targets)
+
+Then we source the script in the R folder with functions to populate the pipeline
+
+- source("R/populate_markdown_with_targets_functions.R")
+
+After that, we  check for errors in the pipeline using tar_manifest() function
+
+- tar_manifest(fields = command)
+
+Next, check pipeline dependency graph using tar_visnetwork() function
+
+- tar_visnetwork()
+
+- Finally we run the pipeline we just built earlier using tar_make() function. This function runs the correct targets in the correct order and saves the results to files
+
+- tar_make()
+
+- Once all the objects from the pipeline have been created, we can Run this Markdown report pressing "Run" in the report_populated_targets_output.Rmd file and finally, by pressing the "knit" button, we will obtain the rendered document, in this instance is a github document, but it can also be rendered ad HTML, PDF or Word document.
+
+
+## Data all files combined
+
+We check the final data frame imported from Excel file with AE Attendances Type I, Type II and Type II data.
+
+```{r load_AE_data}
+tar_read(clean_ATT_data) 
+```
+
+## Type I Accident and Emergency Attendances plot 
+
+This section includes the plot for Type I A&E Attendances created in the pipeline
+
+```{r AE_type_I_plot}
+tar_read(line_chart_AE_att_TypeI)
+```
+
+## Type II Accident and Emergency Attendances 
+
+Total number of Type II A&E Attendances from 2011 to March 2024
+
+```{r AE_type_II_plot}
+tar_read(line_chart_AE_att_TypeII)
+```
+
+## Type III Accident and Emergency Attendances 
+
+Total number of Type III A&E Attendances from 2011 to March 2024
+
+```{r AE_type_III_plot}
+tar_read(line_chart_AE_att_TypeIII)
+```

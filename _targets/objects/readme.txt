@@ -1,0 +1,2 @@
+This folder contains all objects created from all the pipelines I will run and create in this project. Each of the three pipelines I will create in this project "Pipeline_01_populate_markdown_with_targets", "Pipeline_02_to_render_markdown" and "Pipeline_03_dynamic_branching_files" pipelines. 
+These are pipeline objects, that can be visualized using tar_read() and tar_load() functions after loading {targets} library

@@ -1,0 +1,6 @@
+The Aim of this pipeline will be to render a Markdown report inside the pipeline. 
+
+This is an upgrade from the first pipeline, as this time we will render the final markdown report after running the pipeline and it will be populated with objects created in the pipeline
+
+I will focus on A&E Attendances data in this new pipeline. Splitting initial “Monthly-AE-Time-Series-March-2024.xls” file into  individual Attendances type (Type 1, Type 2, Type 3). csv files. I will cleanse them and turn date fields into formatted standard R dates. 
+Then I will merge them and create an adhoc report. Rendering this report within the Targets pipeline.

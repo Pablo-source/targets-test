@@ -1,0 +1,1 @@
+This Markdown report is populated with the pipeline objects created in the pipeline file "_targets.R" and set of functions defined by the R script " populate_markdown_with_targets_functions.R". It shows an small example on how a Targets pipeline can be used to build a Markdown report. 

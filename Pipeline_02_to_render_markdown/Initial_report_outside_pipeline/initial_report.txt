@@ -1,1 +1,3 @@
+This is the initial Markdown report about England A&E Attendancandes using data downloaded from from NHS England website. This is a standard Markdown report you would render by itself, outside a Targets pipeline. 
 
+Our aim is to change slightly the way it is built and also create a specific *Target* object in the pipeline to render it whilst we run the pipeline.

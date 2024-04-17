@@ -1,0 +1,155 @@
+---
+title: "A&E Attendances"
+author: "PLR"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE, error=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+pacman::p_load(tidyverse, markdown, janitor, here,gt)
+```
+
+## 1. Load required data 
+  
+We start by loading required A&E Attendances Type I, Type II and Type III data from NHS England website. Link to the data:. Downloaded file "Monthly A&E Time Series March 2024 (XLS,403K)"<https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/04/Monthly-AE-Time-Series-March-2024.xls>
+
+Use **echo=TRUE** to display both the *code* and *output* of the R code chunk, as in the example below: 
+
+```{r import_AE_data, echo=TRUE, warning=FALSE,message=FALSE}
+# Read csv file
+AE_data <- read_csv(here("data","AE_Attendances_2010_2024.csv"), 
+                                        col_types = cols(...1 = col_skip(), Period = col_date(format = "%d/%m/%Y"), 
+                                        Type1_ATT = col_integer(), Type2_ATT = col_integer(), 
+                                        Type3_ATT = col_integer())) %>% 
+                              clean_names()
+head(AE_data)
+```
+
+## 2. Reference period  
+
+Today's date is:**`r format(today(),"%d %B")`**. This report was published on the week starting on  **`r format(today()-2,"%d %B %Y")`**. It covers A&E Attendances data from **`r format(min(AE_data$period, na.rm=T),"%d %B %Y")`** as first month in the existing input file to **`r format(max(AE_data$period, na.rm=T),"%d %B 
+%Y")`** as the latest available data point.
+
+## 3. Summary Type I, TypeII and TypeIII Attendances
+
+This is a summary of Type I, Type II and Type III attendances figures for the **`r format(min(AE_data$period, na.rm=T),"%d %B %Y")`** to **`r format(max(AE_data$period, na.rm=T),"%d %B 
+%Y")`** period: 
+
+```{r Type_1_summary, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+# Type I figures
+
+Min_Type_I_data <- AE_data %>% select (period, type1_att) %>% filter(type1_att == min(type1_att))
+Min_Type_I_data
+
+Max_Type_I_data <- AE_data %>% select (period, type1_att) %>% filter(type1_att == max(type1_att))
+Max_Type_I_data
+
+
+Avg_Type_I_data <- AE_data %>% select (period, type1_att) %>% mutate(AVG_type1_att = mean(type1_att)) %>% filter(period == max(period))
+Avg_Type_I_data
+```
+
+- For the **`r format(Min_Type_I_data$period,"%d %B %Y")`** to **`r format(Max_Type_I_data$period,"%d %B %Y")`** period, the *lowest* value of AE Type I attendances was **`r prettyNum(Min_Type_I_data$type1_att, big.mark=",")`**. The *highest* value was **`r prettyNum(Max_Type_I_data$type1_att, big.mark=",")`** and the average value for Type I Attendances was
+**`r prettyNum(Avg_Type_I_data$type1_att, big.mark=",")`**
+
+```{r Type_2_summary, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+# Type I figures
+
+Min_Type_II_data <- AE_data %>% select (period, type2_att) %>% filter(type2_att == min(type2_att))
+Min_Type_II_data
+
+Max_Type_II_data <- AE_data %>% select (period, type2_att) %>% filter(type2_att == max(type2_att))
+Max_Type_II_data
+
+
+Avg_Type_II_data <- AE_data %>% select (period, type2_att) %>% mutate(AVG_type2_att = mean(type2_att)) %>% filter(period == max(period))
+Avg_Type_II_data
+```
+
+- The *lowest* value of AE Type II attendances was **`r prettyNum(Min_Type_II_data$type2_att, big.mark=",")`**. The *highest* value was **`r prettyNum(Max_Type_II_data$type2_att, big.mark=",")`** and the **average** value for Type II Attendances was
+**`r prettyNum(Avg_Type_II_data$type2_att, big.mark=",")`**
+
+Formatted number **`r prettyNum(Min_Type_I_data$type1_att, big.mark=",")`**
+
+## 4. Year 2023/24 Type I, TypeII, Type III table details 
+
+The table below displays the latest attendances figures by month. 
+
+```{r gt_table,echo=TRUE, warning=FALSE,message=FALSE }
+
+names(AE_data)
+
+AE_data_2013_gt <- AE_data %>% select(Date = period, 
+                                 TypeI = type1_att, 
+                                 Type2 = type2_att,
+                                 Type3 = type3_att) %>% 
+                          filter(Date >= '2023-01-01')
+# Build a gt table from the previous AE data 
+# Formatting numbers with thousands separator, adding title and subtitle
+library(gt)
+AE_table <-gt(AE_data_2013_gt) 
+
+# Att title to table
+AE_table_thousands <- AE_table %>% 
+  tab_header(
+    title = md("**A&E Attendances in England. 2023 period**") ,
+    subtitle = md("By type(*Type I*,*Type II*,*Type III*)")
+  ) %>% 
+  tab_source_note(
+    source_note = "Source: NHE England A&E Attendances and Emergency Admissions data"
+  ) %>% 
+  tab_source_note(
+    source_note = md("*England Time Series monthly data*")
+  ) %>% 
+  fmt_number( columns = c(TypeI, Type2, Type3), sep_mark = ",", decimals = 0)
+
+AE_table_thousands
+```
+
+## 5.Area chart displaying Type I, TypeII, Type III Attendances by Type
+
+This final section describe A&E Attendances by type as an area chart, to visualize the contribution of each A&E Attendances type to the overal total number of Attendances
+
+I will mimic the chart displaying different categories by colours displayed in this website: <https://epirhandbook.com/en/reports-with-r-markdown.html>
+
+```{r Time chart data prep, echo=TRUE}
+# First I need to re-shape this data set from wide to long format 
+
+AE_data_all <- AE_data %>% select(Date = period, 
+                                 TypeI = type1_att, 
+                                 Type2 = type2_att,
+                                 Type3 = type3_att) 
+# Pivot longer
+AE_data_long <- AE_data %>% 
+                  select(Date = period, 
+                                 TypeI = type1_att, 
+                                 Type2 = type2_att,
+                                 Type3 = type3_att) %>% 
+                  pivot_longer(names_to = "Type",
+                               cols = 2:ncol(AE_data))
+AE_data_long
+```
+Then we can plot the data by Attendances type. 
+
+- How to control the amount of break and minor breaks to display with *date_breaks* and *date_minor_breaks*: <https://r-graph-gallery.com/279-plotting-time-series-with-ggplot2.html>
+- Also this is an example of a Stacked area chart: <https://r-graph-gallery.com/136-stacked-area-chart.html>
+
+
+```{r Time chart by Type , echo=TRUE, warning=FALSE,message=FALSE, out.height="100%", out.width="110%"}
+library(viridis)
+library(hrbrthemes)
+
+ggplot(AE_data_long, aes(x = Date, y = value, fill = Type)) +
+      labs(title = "A&E Attendances by type. 2010-2024 period",
+         subtitle = "TypeI, TypeII, TypeIII A&E Attendances by month",
+         x = "Period", y = "Value" ) +
+  geom_area(alpha = 0.6, size = .5, colour = "white") +
+  scale_y_continuous(breaks = seq(0, 6000000, by = 300000)) +
+  scale_x_date(date_breaks = "2 years", date_labels = "%Y") +
+  theme(axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12)) +
+   scale_fill_viridis(discrete = T) +
+ theme_ipsum() 
+
+```

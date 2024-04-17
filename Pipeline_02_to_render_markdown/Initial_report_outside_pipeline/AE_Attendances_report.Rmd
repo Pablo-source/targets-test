@@ -7,6 +7,10 @@ output: html_document
 
 ```{r setup, include=FALSE, error=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE) 
+if (!require(pacman)){
+  install.packages("pacman",dependencies = TRUE)
+  library(pacman)
+}
 pacman::p_load(tidyverse, markdown, janitor, here,gt)
 ```
 

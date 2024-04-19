@@ -1,0 +1,18 @@
+This pipeline describes common merge and union data manipulation steps inside a Targets pipeline, based on a set of .csv input files:
+
+- AE_TYPE_I_ATT_AUG10_JAN24_2010.csv
+- AE_TYPE_I_ATT_AUG10_JAN24_2011_2020.csv
+- AE_TYPE_I_ATT_AUG10_JAN24_2021_2024.csv
+- AE_TYPE_2_ATT_AUG10_JAN24_2010.csv
+- AE_TYPE_2_ATT_AUG10_JAN24_2011_2020.csv
+- AE_TYPE_2_ATT_AUG10_JAN24_2021_2024.csv
+
+
+The pipeline I have design covers the following set of steps:
+
+- Read in data from "data" sub-folder in the pipeline where all input files are stored
+1. Data ingestion (read in .csv files into the pipeline)
+2. Clean files
+3. Union files
+4. Merge unioned files
+5. Output unioned files as a new .csv file called "Attendances_I_II_merged.csv" and saved it in the "objects" folder

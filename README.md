@@ -20,7 +20,7 @@ Pipeline_03_dynamic_branching_files:
   - _targets.R                    (Pipeline setup file)
   - dynamic_pipeline_functions.R  (Specific functions to populate this pipeline)
 
-## Quick start using Targets
+## 1. Targets quick start guide 
 After installing the package, we load targets “library(targets)”. Then our first step is to run “**use_tergets()**” function. This **creates** a new file called **_tragets.R** that is used to **configure** and **setup** the **pipeline**.
 
 Follow these steps then detailed in the R Documentation section of the use_targets() function: 
@@ -35,20 +35,20 @@ If applicable, edit clustermq.tmpl and/or future.tmpl to configure settings for 
 
 If applicable, configure job.sh, "clustermq.tmpl", and/or "future.tmpl" for your resource manager.
 
-## 1. Create single scripts for each analysis steps
+## 1.1 Create single scripts for each analysis steps
 
 - In this example I have started creating one script to load the data and another one to create a plot from that data
 
 - See script: before_targets/**code_pre_targets.R**
 
-## 2. Turn these single scripts into functions
+## 1.2 Turn these single scripts into functions
 
 There is a folder called "before targets" containing individual R scripts called "code_pre_targets.R" this script allows me to plan the analysis.
 The second script "scripts_into_functions_targets_prep.R" contains new **functions** based on initial scripts to wwork with Targets package
 
 - See script: before_targets/**scripts_to_functions.R**
 
-## 3. Functions used by Targets saved in R folder
+## 1.3 Functions used by Targets saved in R folder
 
 - The set of functions we want to run as part of our pipeline, are saved in the **R folder** for Targets to use them when executing the pipeline
 
@@ -58,7 +58,7 @@ The second script "scripts_into_functions_targets_prep.R" contains new **functio
 ![2024-03-24_18-17_study_function_scripts_updated](https://github.com/Pablo-source/targets-test/assets/76554081/0b824425-8582-474a-980a-42ad87415ece)
 
 
-## 3.1 Pipeline defined in the _targets.R file
+## 1.4 Pipeline defined in the _targets.R file
 
 pipeline
   - 1-4 Read in data
@@ -71,7 +71,7 @@ pipeline
 ![2024-03-28_09-27_all_three_new_targets_plots](https://github.com/Pablo-source/targets-test/assets/76554081/337c2411-05c5-4bfd-8b04-23d71cfb649c)
 
 
-## 4. Specific {targets} functions used to execute the pipeline 
+## 1.5 Specific {targets} functions used to execute the pipeline 
 
 Load targets library
 library(targets)
@@ -92,7 +92,7 @@ tar_make()
 The plot created from our pipeline is now saved as an individual .png chart
 
 
-## 5. Run pipeline
+## 1.6 Run pipeline
 
 Fnally we run the pipeline we just built earlier using tar_make() function
 This function runs the correct targets in the correct order and saves the results to files
@@ -100,7 +100,7 @@ This function runs the correct targets in the correct order and saves the result
 
 ![05_Pipeline_completed_merged_files](https://github.com/Pablo-source/targets-test/assets/76554081/a4c488bf-92ac-49f8-825e-970fad4fc6e2)
 
-## 6. Render Markdown report from Pipeline objects created in previous step
+## Pipeline 01. populate markdown with targets
 
 Everytime we update something in the pipeline we use "tar_make()" to re-run the entire pipeline. If some of the targets have not changed since last time we ran the pipeline, targets will skip those nodes in the pipeline called targets.
 
@@ -117,7 +117,7 @@ So now we have an initial pipeline that we can start to modify and expand to inc
 ![rendered_markdown_report_from_targets_pipeline](https://github.com/Pablo-source/targets-test/assets/76554081/302f7f6b-41ad-4c41-9fd8-c65908aa7aa9)
 
 
-## 7. General pipeline structure using visnetwork 
+## Pipeline 01. General pipeline structure using visnetwork 
 
 First we will merge all incoming .csv files, then we combine them into a single file and we use this new combined data frmae to populate our Markdown report.
 
@@ -127,7 +127,7 @@ This is the output usuing tar_visnetwork() function to check pipeline dependency
 
 As part of the data preparation stage for future modelling pipeline
 
-## 8. Pipeline run output
+## Pipeline 01. Completed pipeline final output
 
 This is the output of the complated pipeline run, with dataframes saved and required .csv files saved in the \objects folder
 
@@ -136,7 +136,7 @@ After using **tar_make()** function we get the complete report of which sections
 ![2024-03-28_09-35_tar_manifest_all_charts_created](https://github.com/Pablo-source/targets-test/assets/76554081/04525e6e-5d3c-4be2-83dc-ea25ccd7cdd5)
 
 
-## 9.Dynamic branching and Time Series models forecast
+## 9.Pipeline 03. Dynamic branching and Time Series models forecast
 
 Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run **fs:dir_tree("targets-test")** to check whole set of objects created by Targets. The Markdown report has been populated by the three plots created in the pipeline.
 

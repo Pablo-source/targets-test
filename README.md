@@ -16,8 +16,12 @@ Project to practise creating analytical pipelines to run models using {targets} 
 
 - So when downloading each pipeline folder, it will contain the "_targets.R" files and related functions saved in the \R folder. All required input files will be sourced from the \data folder 
 
-Pipeline_03_dynamic_branching_files:
-  - _targets.R                    (Pipeline setup file)
+Pipeline_01_populate_markdown_with_targets files:
+  - _targets.R                    (Specific Pipeline setup file)
+  - populate_markdown_with_targets_functions.R  (Specific functions to populate this pipeline)
+  - 
+Pipeline_03_dynamic_branching files:
+  - _targets.R                    (Specific Pipeline setup file)
   - dynamic_pipeline_functions.R  (Specific functions to populate this pipeline)
 
 ## 1. Targets quick start guide 

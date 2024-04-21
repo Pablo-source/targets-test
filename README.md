@@ -140,13 +140,13 @@ After using **tar_make()** function we get the complete report of which sections
 ![2024-03-28_09-35_tar_manifest_all_charts_created](https://github.com/Pablo-source/targets-test/assets/76554081/04525e6e-5d3c-4be2-83dc-ea25ccd7cdd5)
 
 
-## 9.Pipeline 03. Dynamic branching and Time Series models forecast
+## 2.Pipeline 03. Dynamic branching and Time Series models forecast
 
 Once the pipeline has run, before we implement a new feature (including a simple ARIMA model) defined in issue '#6', I have run **fs:dir_tree("targets-test")** to check whole set of objects created by Targets. The Markdown report has been populated by the three plots created in the pipeline.
 
 In the coming week, I will be using **Dynamic branching** alongside **Modeltime** packages to introduce a couple of predictive models (ARIMA,Prophet) in the eixisting Pipeline. This is aimed to predict the next 5 months of Manufacturer's Value of Shipment for the following set of Shipment categories described below: 
 
-### 9.1 Dynanic branching
+### 2.1 Dynanic branching
 
 It is a way to define new targets while the pipeline is running.  Opposed to declaring several targets up front. It is when you want to iterate over what is in the data, and you want a target that iterates by region.
 -Dynamic branching using {targets}
@@ -187,7 +187,7 @@ Visnetwork from the above workfow including branching
 
 - This will allow me using Modeltime, then apply every model to each of the different branches created by Targets, so the model will ran by each metric in the pipeline
   
-9.2 modeltime
+2.2 modeltime
 I will include Modeltime Package to combine Prophet and ARIMA models in the previous Targets Pipeline
 -Modeltime package
 <https://business-science.github.io/modeltime/>

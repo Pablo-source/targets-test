@@ -19,7 +19,7 @@ Project to practise creating analytical pipelines to run models using {targets} 
 Pipeline_01_populate_markdown_with_targets files:
   - _targets.R                    (Specific Pipeline setup file)
   - populate_markdown_with_targets_functions.R  (Specific functions to populate this pipeline)
-  - 
+    
 Pipeline_03_dynamic_branching files:
   - _targets.R                    (Specific Pipeline setup file)
   - dynamic_pipeline_functions.R  (Specific functions to populate this pipeline)

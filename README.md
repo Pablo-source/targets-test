@@ -17,14 +17,19 @@ Project to practise creating analytical pipelines to run models using {targets} 
 - So when downloading each pipeline folder, it will contain the "_targets.R" files and related functions saved in the \R folder. All required input files will be sourced from the \data folder 
 
 Pipeline_01_populate_markdown_with_targets files:
-  - _targets.R                    (Specific Pipeline setup file)
+  - _targets.R                                  (Specific Pipeline setup file)
   - populate_markdown_with_targets_functions.R  (Specific functions to populate this pipeline)
+
+Pipeline_02_to_render_markdown:
+  - _targets.R                           (Specific Pipeline setup file)
+  - pipeline_render_markdown_functions.R (Specific function to populate this pipeline)
     
 Pipeline_03_dynamic_branching files:
   - _targets.R                    (Specific Pipeline setup file)
   - dynamic_pipeline_functions.R  (Specific functions to populate this pipeline)
 
 ## 1. Targets quick start guide 
+
 After installing the package, we load targets “library(targets)”. Then our first step is to run “**use_tergets()**” function. This **creates** a new file called **_tragets.R** that is used to **configure** and **setup** the **pipeline**.
 
 Follow these steps then detailed in the R Documentation section of the use_targets() function: 
@@ -139,6 +144,8 @@ After using **tar_make()** function we get the complete report of which sections
 
 ![2024-03-28_09-35_tar_manifest_all_charts_created](https://github.com/Pablo-source/targets-test/assets/76554081/04525e6e-5d3c-4be2-83dc-ea25ccd7cdd5)
 
+All required files to run this pipeline saved in folder: **Pipeline_01_populate_markdown_with_targets**
+
 ## 1.Pipeline 02. Render Markdown in pipeline
 
 We can render a Markdown document in the Targets pipeline by using {tarchetypes} library. This library provide us with the tar_render() function.  So by adding a new target to our pipeline, we can render the report after the pipeline has run and it has populated our Markdown report. 
@@ -149,6 +156,8 @@ And the rendering Targets function is now included in the pipeline:
 ![VISNETWORK_render_report_targets](https://github.com/Pablo-source/targets-test/assets/76554081/2dd3128f-5c36-4a00-95ad-1fe628a5d76a)
 
 After running the _targets file from this folder, we can automate the creation and rendering of a Markdown document inside the Targets pipeline
+
+All required files to run this pipeline saved in folder: **Pipeline_02_to_render_markdown**
 
 ## 2.Pipeline 03. Dynamic branching and Time Series models forecast
 
@@ -194,6 +203,8 @@ This is an example of dynamic branching using **tarchetypes** package based on M
 Visnetwork from the above workfow including branching
 
 ![VISNETWORK_graph_branch_by_metric](https://github.com/Pablo-source/targets-test/assets/76554081/9b9732b7-dfdb-4df0-add8-76edab4fc21a)
+
+All required files to run this pipeline saved in folder: **Pipeline_03_dynamic_branching_files**
 
 - This will allow me using Modeltime, then apply every model to each of the different branches created by Targets, so the model will ran by each metric in the pipeline
   

@@ -79,6 +79,7 @@ pipeline
 
 ![2024-03-28_09-27_all_three_new_targets_plots](https://github.com/Pablo-source/targets-test/assets/76554081/337c2411-05c5-4bfd-8b04-23d71cfb649c)
 
+All required files to run this pipeline saved in folder: **Pipeline_04_data_wrangling_union_merge**
 
 ## 1.5 Specific {targets} functions used to execute the pipeline 
 

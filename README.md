@@ -139,6 +139,16 @@ After using **tar_make()** function we get the complete report of which sections
 
 ![2024-03-28_09-35_tar_manifest_all_charts_created](https://github.com/Pablo-source/targets-test/assets/76554081/04525e6e-5d3c-4be2-83dc-ea25ccd7cdd5)
 
+## 1.Pipeline 02. Render Markdown in pipeline
+
+We can render a Markdown document in the Targets pipeline by using {tarchetypes} library. This library provide us with the tar_render() function.  So by adding a new target to our pipeline, we can render the report after the pipeline has run and it has populated our Markdown report. 
+
+![TARGETS_file_render_markdown](https://github.com/Pablo-source/targets-test/assets/76554081/2d0b8e93-7e9a-4a3b-a170-87613130f3ab)
+
+And the rendering Targets function is now included in the pipeline: 
+![VISNETWORK_render_report_targets](https://github.com/Pablo-source/targets-test/assets/76554081/2dd3128f-5c36-4a00-95ad-1fe628a5d76a)
+
+After running the _targets file from this folder, we can automate the creation and rendering of a Markdown document inside the Targets pipeline
 
 ## 2.Pipeline 03. Dynamic branching and Time Series models forecast
 

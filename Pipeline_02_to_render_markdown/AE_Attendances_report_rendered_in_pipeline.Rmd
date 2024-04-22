@@ -1,0 +1,195 @@
+---
+title: "A&E Attendances"
+author: "PLR"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE, error=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+if (!require(pacman)){
+  install.packages("pacman",dependencies = TRUE)
+  library(pacman)
+}
+pacman::p_load(tidyverse, markdown, janitor, here,gt,targets)
+```
+
+## 1. Load required data 
+  
+We start by loading required A&E Attendances Type I, Type II and Type III data from NHS England website. Link to the data:. Downloaded file "Monthly A&E Time Series March 2024 (XLS,403K)"<https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2024/04/Monthly-AE-Time-Series-March-2024.xls>
+
+And this time for this Markdown report we have processed first using Targets. The first Target object we have created in this pipeline is called `clean_ATT_data` after cleansing and importing the original .xsl file we had in our \data imput folder.  
+
+Use **echo=TRUE** to display both the *code* and *output* of the R code chunk, as in the example below: 
+
+```{r import_AE_data, echo=TRUE, warning=FALSE,message=FALSE}
+# Read csv file
+tar_read(clean_ATT_data)
+```
+
+To populate the inline text, we can load this Target object **clean_ATT_data** into our R Environment using `tar_load()` function, `tar_load(clean_ATT_data)`
+
+```{r load targets into R environment}
+tar_load(clean_ATT_data)
+# Assign data frame from Targets to new object called AE_data
+AE_data <- clean_ATT_data
+AE_data
+```
+
+Meaning we can start populating any `inline` text from this markdown document directly from the Targets pipeline output. These are the variables from the above Target object, `names(AE_data)`: [1] "date"           "AE_att_TypeI"   "AE_att_TypeII"  "AE_att_TypeIII"
+
+## 2. Reference period  
+
+Today's date is:**`r format(today(),"%d %B")`**. This report was published on the week starting on  **`r format(today()-2,"%d %B %Y")`**. It covers A&E Attendances data from **`r format(min(AE_data$date, na.rm=T),"%d %B %Y")`** as first month in the existing input file to **`r format(max(AE_data$date, na.rm=T),"%d %B 
+%Y")`** as the latest available data point.
+
+## 3. Summary Type I, TypeII and TypeIII Attendances
+
+This is a summary of Type I, Type II and Type III attendances figures for the **`r format(min(AE_data$date, na.rm=T),"%d %B %Y")`** to **`r format(max(AE_data$date, na.rm=T),"%d %B 
+%Y")`** period: 
+
+```{r Type_1_summary, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+# Type I figures
+
+Min_Type_I_data <- AE_data %>% select (date, AE_att_TypeI) %>% filter(AE_att_TypeI == min(AE_att_TypeI))
+Min_Type_I_data
+
+Max_Type_I_data <- AE_data %>% select (date, AE_att_TypeI) %>% filter(AE_att_TypeI == max(AE_att_TypeI))
+Max_Type_I_data
+
+
+Avg_Type_I_data <- AE_data %>% select (date, AE_att_TypeI) %>% mutate(AVG_type1_att = mean(AE_att_TypeI)) %>% filter(date == max(date))
+Avg_Type_I_data
+```
+
+- For the **`r format(Min_Type_I_data$date,"%d %B %Y")`** to **`r format(Max_Type_I_data$date,"%d %B %Y")`** period, the *lowest* value of AE Type I attendances was **`r prettyNum(Min_Type_I_data$AE_att_TypeI, big.mark=",")`**. The *highest* value was **`r prettyNum(Max_Type_I_data$AE_att_TypeI, big.mark=",")`** and the average value for Type I Attendances was
+**`r prettyNum(Avg_Type_I_data$AE_att_TypeI, big.mark=",")`**
+
+```{r Type_2_summary, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+# Type I figures
+
+Min_Type_II_data <- AE_data %>% select (date, AE_att_TypeII) %>% filter(AE_att_TypeII == min(AE_att_TypeII))
+Min_Type_II_data
+
+Max_Type_II_data <- AE_data %>% select (date, AE_att_TypeII) %>% filter(AE_att_TypeII == max(AE_att_TypeII))
+Max_Type_II_data
+
+
+Avg_Type_II_data <- AE_data %>% select (date, AE_att_TypeII) %>% mutate(AVG_type2_att = mean(AE_att_TypeII)) %>% filter(date == max(date))
+Avg_Type_II_data
+```
+
+- The *lowest* value of AE Type II attendances was **`r prettyNum(Min_Type_II_data$type2_att, big.mark=",")`**. The *highest* value was **`r prettyNum(Max_Type_II_data$type2_att, big.mark=",")`** and the **average** value for Type II Attendances was
+**`r prettyNum(Avg_Type_II_data$type2_att, big.mark=",")`**
+
+Formatted number **`r prettyNum(Min_Type_I_data$type1_att, big.mark=",")`**
+
+## 4. Year 2023/24 Type I, TypeII, Type III table details 
+
+The table below displays the latest attendances figures by month. 
+
+```{r gt_table,echo=TRUE, warning=FALSE,message=FALSE }
+
+names(AE_data)
+
+AE_data_2013_gt <- AE_data %>% select(Date = date, 
+                                 TypeI = AE_att_TypeI, 
+                                 Type2 = AE_att_TypeII,
+                                 Type3 = AE_att_TypeIII) %>% 
+                          filter(Date >= '2023-01-01')
+# Build a gt table from the previous AE data 
+# Formatting numbers with thousands separator, adding title and subtitle
+library(gt)
+AE_table <-gt(AE_data_2013_gt) 
+
+# Att title to table
+AE_table_thousands <- AE_table %>% 
+  tab_header(
+    title = md("**A&E Attendances in England. 2023 period**") ,
+    subtitle = md("By type(*Type I*,*Type II*,*Type III*)")
+  ) %>% 
+  tab_source_note(
+    source_note = "Source: NHE England A&E Attendances and Emergency Admissions data"
+  ) %>% 
+  tab_source_note(
+    source_note = md("*England Time Series monthly data*")
+  ) %>% 
+  fmt_number( columns = c(TypeI, Type2, Type3), sep_mark = ",", decimals = 0)
+
+AE_table_thousands
+```
+
+## 5.Area chart displaying Type I, TypeII, Type III Attendances by Type
+
+This final section describe A&E Attendances by type as an area chart, to visualize the contribution of each A&E Attendances type to the overal total number of Attendances
+
+I will mimic the chart displaying different categories by colours displayed in this website:  <https://epirhandbook.com/en/reports-with-r-markdown.html>
+
+```{r Time_chart_data_prep, echo=TRUE}
+# First I need to re-shape this data set from wide to long format 
+head(AE_data)
+names(AE_data)
+AE_data
+#   Pivot longer
+# AE_data_long <- AE_data %>% 
+#                    select(period, type1_att, type2_att, type3_att) %>% 
+#                    pivot_longer(names_to = "Type",
+#                                 cols = 2:ncol(AE_data))
+# AE_data_long
+```
+```{r pivot_data, echo=TRUE}
+## [1] "date"           "AE_att_TypeI"   "AE_att_TypeII"  "AE_att_TypeIII"
+#   Pivot longer
+AE_data_pivot <- AE_data
+
+AE_data_pivot
+
+
+AE_data_long <- AE_data_pivot %>% 
+                pivot_longer(names_to = "Type",
+                                  cols = 2:ncol(AE_data_pivot))
+AE_data_long
+
+```
+
+Then we can plot the data by Attendances type. 
+
+- How to control the amount of break and minor breaks to display with *date_breaks* and *date_minor_breaks*: <https://r-graph-gallery.com/279-plotting-time-series-with-ggplot2.html>
+- Also this is an example of a Stacked area chart: <https://r-graph-gallery.com/136-stacked-area-chart.html>
+
+
+```{r}
+
+
+data_area_chart <- AE_data_long %>% 
+                   select(date,Type,value) 
+data_area_chart
+
+```
+## 6.Area chart displaying Type I, TypeII, Type III Attendances by Type
+
+### 6.1 Building plot in Markdown report
+
+This final section describe A&E Attendances by type as an area chart, to visualize the contribution of each A&E Attendances type to the overall total number of Attendances
+
+I will mimic the chart displaying different categories by colours displayed in this website: <https://epirhandbook.com/en/reports-with-r-markdown.html>
+
+```{r Time_chart_by_Type, echo=TRUE, warning=FALSE,message=FALSE, out.height="100%", out.width="110%"}
+library(viridis)
+library(hrbrthemes)
+
+area_chart <- ggplot(data_area_chart, aes(x = date, y = value, fill = Type)) +
+      labs(title = "A&E Attendances by type. 2010-2024 period",
+         subtitle = "TypeI, TypeII, TypeIII A&E Attendances by month",
+         x = "Period", y = "Value" ) +
+  geom_area(alpha = 0.6, size = .5, colour = "white") 
+area_chart
+
+```
+
+### 6.2 Using targets object 
+
+```{r plot_using_targets}
+tar_read(area_chart)
+```
+

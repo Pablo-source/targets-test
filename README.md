@@ -208,6 +208,12 @@ Visnetwork from the above workfow including branching
 All required files to run this pipeline saved in folder: **Pipeline_03_dynamic_branching_files**
 
 - This will allow me using Modeltime, then apply every model to each of the different branches created by Targets, so the model will ran by each metric in the pipeline
+- This is the current active issue where I will implement these new time series models in the existing Targets pipeline
+![2024-04-23_09-02_new_ts_models_branch_GIT](https://github.com/Pablo-source/targets-test/assets/76554081/1a863614-3255-48d7-a81f-994199c6d23c)
+
+![2024-04-23_09-02_new_ts_models_branch_RStudio](https://github.com/Pablo-source/targets-test/assets/76554081/27e62f5a-09e6-42e0-ba90-3cda3f884fcf)
+
+
   
 2.2 modeltime
 I will include Modeltime Package to combine Prophet and ARIMA models in the previous Targets Pipeline

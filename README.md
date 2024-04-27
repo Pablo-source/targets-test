@@ -210,7 +210,7 @@ All required files to run this pipeline saved in folder: **Pipeline_03_dynamic_b
 - This will allow me using Modeltime, then apply every model to each of the different branches created by Targets, so the model will ran by each metric in the pipeline
 - This is the current active issue where I will add those models to the existing Targets pipeline in a new branch on git called "ts_models"
 
-## 4.Pipeline 05. Dynamic branching including ARIMA and Prophet moedls 
+## 4.Pipeline 05. Dynamic branching including ARIMA and Prophet models 
 
 Over the next two days I will include a new folder in this project called "Pipeline_05_ARIMA_Prophet_models" containing all required files to run and replicate this new pipeline: 
 

@@ -207,8 +207,7 @@ Visnetwork from the above workfow including branching
 
 All required files to run this pipeline saved in folder: **Pipeline_03_dynamic_branching_files**
 
-- This will allow me using Modeltime, then apply every model to each of the different branches created by Targets, so the model will ran by each metric in the pipeline
-- This is the current active issue where I will add those models to the existing Targets pipeline in a new branch on git called "ts_models"
+- This will allow me using Modeltime, to apply each model to the different branches created by Targets, so the model will ran by each metric in the pipeline
 
 ## 4.Pipeline 05. Dynamic branching including ARIMA and Prophet models 
 

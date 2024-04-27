@@ -210,7 +210,10 @@ All required files to run this pipeline saved in folder: **Pipeline_03_dynamic_b
 - This will allow me using Modeltime, then apply every model to each of the different branches created by Targets, so the model will ran by each metric in the pipeline
 - This is the current active issue where I will add those models to the existing Targets pipeline in a new branch on git called "ts_models"
 
-2.2 modeltime
-I will include Modeltime Package to combine Prophet and ARIMA models in the previous Targets Pipeline
--Modeltime package
-<https://business-science.github.io/modeltime/>
+## 4.Pipeline 05. Dynamic branching including ARIMA and Prophet moedls 
+
+Over the next two days I will include a new folder in this project called "Pipeline_05_ARIMA_Prophet_models" containing all required files to run and replicate this new pipeline: 
+
+![VISNETWORK_PROPHET_model](https://github.com/Pablo-source/targets-test/assets/76554081/4ba39fb8-93ac-4a7b-a265-1c3e670660d9)
+
+Using Modeltime Package to combine Prophet and ARIMA models in the previous Targets Pipeline. Modeltime package: <https://business-science.github.io/modeltime/>

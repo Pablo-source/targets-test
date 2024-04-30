@@ -1,29 +1,33 @@
 # Created by use_targets().
-# Follow the comments below to fill in this target script.
-# Then follow the manual to check and run the pipeline:
-#   https://books.ropensci.org/targets/walkthrough.html#inspect-the-pipeline
+# Project: DYNAMIC_BR_MODELS.Rproj
+# Path: C:\R\WorkingDir\Targets_tutorial_MY_NOTES\10_TARGETS_include_MODELS\DYNAMIC_BR_MODELS
 
 # Load packages required to define the pipeline:
 library(targets)
 library(tarchetypes) # Load library {tarchetypes} to implement dynamic branching
-                     # https://github.com/ropensci/tarchetypes
+# https://github.com/ropensci/tarchetypes
 
+library(tidyverse)   # LOad tidyverse to allow initial_time_split() function to work
+# Or include "tidymodels" in the tar_option_set() function to load required
+# packages for the pipeline
+library(rsample)     # Package required to perform train/test split
 
-# library(tarchetypes) # Load other packages as needed.
+library(modeltime) # Load ARIMA and PROPHET models from {modeltime} package 
+# ARIMA model: arima_reg()
+
+library(parsnip)                   # We require PARSNIT package to use set_engine() function
 
 # Set target options:
 tar_option_set(
-  packages = c("tibble","janitor","tidyverse","here","stats","forecast") # packages that your targets need to run
+  packages = c("tibble","janitor","tidyverse","here","stats","forecast","rsample") # packages that your targets need to run
 )
-
 options(clustermq.scheduler = "multicore")
 
-# tar_make_future() is an older (pre-{crew}) way to do distributed computing
-# in {targets}, and its configuration for your machine is below.
-# Install packages {{future}}, {{future.callr}}, and {{future.batchtools}} to allow use_targets() to configure tar_make_future() options.
-
 # Run the R scripts in the R/ folder with your custom functions:
-tar_source("R/dynamic_pipeline_functions.R")
+# Pipeline including predictive models: "dynamic_predictive_pipeline_functions.R"
+
+tar_source("R/dynamic_predictive_pipeline_functions.R")
+
 # source("other_functions.R") # Source other scripts as needed.
 
 # Replace the target list below with your own:
@@ -38,9 +42,17 @@ list(
   tar_target(computer_durable, command = union_computer_durable(computer_data,durable_goods)),
   # 2. Introduce branching using "tar_group_by()" function from {tarchetypes} package
   # Create different branches by Metric variable (we will apply one model at a time to each individual branch)
- tar_group_by(grouped_metric, computer_durable, Metric),
- tar_target(grouped_by_metric,grouped_metric, pattern =map(grouped_metric))
- 
+  tar_group_by(grouped_metric, computer_durable, Metric),
+  tar_target(grouped_by_metric,grouped_metric, pattern =map(grouped_metric)),
+  # Include TRAIN TEST SPLIT
+  # TRAIN set
+  tar_target(train_data, command = test_train_split(grouped_by_metric)),
+  # TEST set
+  tar_target(test_data, command = test_train_split(grouped_by_metric)),
+  # Include ARIMA model
+  tar_target(model_fit_arima, command = ARIMA_model(train_data)),
+  # Include Prophet model
+  tar_target(model_fit_prophet, command = PROPHET_model(train_data))
 )
 
   

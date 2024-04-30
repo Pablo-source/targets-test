@@ -211,7 +211,11 @@ All required files to run this pipeline saved in folder: **Pipeline_03_dynamic_b
 
 ## 4.Pipeline 05. Dynamic branching including ARIMA and Prophet models 
 
-Over the next two days I will include a new folder in this project called "Pipeline_05_ARIMA_Prophet_models" containing all required files to run and replicate this new pipeline: 
+This pipeline is completed and all required files to run it can be found in  "Pipeline_05_ARIMA_Prophet_models" folder: 
+
+![2024-04-30_17-47_VISNETWORK_ARIMA_MODEL_final](https://github.com/Pablo-source/targets-test/assets/76554081/2b493c9e-e95d-4479-a97d-087c6cce52fd)
+
+- Specific files to replicate this pipeline: "_targets.R","using_dynamic_predictive_pipeline.R" and "dynamic_predictive_pipeline_functions.R" this last one must be run from the \R folder 
 
 ![VISNETWORK_PROPHET_model](https://github.com/Pablo-source/targets-test/assets/76554081/4ba39fb8-93ac-4a7b-a265-1c3e670660d9)
 
